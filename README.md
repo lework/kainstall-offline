@@ -8,6 +8,7 @@
 
 | 时间 | kube 版本 | 文件大小 | 下载链接 |
 | --------- | -------- | ----------- | ----------- |
+| 2020-10-18_11:32:20 | 1.17.13 | 833M | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.17.13/centos7.tgz) |
 | 2020-10-18_19:21:08 | 1.16.15 | 823M | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.16.15/centos8.tgz) |
 | 2020-10-18_19:15:39 | 1.16.15 | 819M | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.16.15/centos7.tgz) |
 
