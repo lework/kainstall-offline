@@ -79,7 +79,7 @@ script:
   - ls -alhR ./*
   - sudo rm -rfv ${KUBE_VERSION}/${OS}${OS_VERSION}/
   - size=$(ls -lh ${KUBE_VERSION}/${OS}${OS_VERSION}.tgz | awk '{print $5}')
-  - sed -i "/| --------- |/a\\| ${KUBE_VERSION} | ${size} | [${OS}${OS_VERSION}](http://kainstall.oss-cn-shanghai.aliyuncs.com/${KUBE_VERSION}/${OS}${OS_VERSION}.tgz) |" README.md
+  - sed -i "/| --------- |/a\\| $(date +%Y-%m-%d_%T) | ${KUBE_VERSION} | ${size} | [${OS}${OS_VERSION}](http://kainstall.oss-cn-shanghai.aliyuncs.com/${KUBE_VERSION}/${OS}${OS_VERSION}.tgz) |" README.md
     
 after_success:
   - echo "[Push file]"
