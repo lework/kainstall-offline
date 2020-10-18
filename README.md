@@ -8,6 +8,7 @@
 
 | kube 版本 | 文件大小 | 下载链接 |
 | --------- | -------- | ----------- |
+| 1.16.15 | 819M | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.16.15/centos7.tgz) |
 |           |          |             |
 
 
