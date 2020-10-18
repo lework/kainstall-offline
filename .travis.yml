@@ -1,0 +1,95 @@
+sudo: required
+
+env:
+  #matrix:
+  - OS=centos OS_VERSION=7
+  - OS=centos OS_VERSION=8
+  
+branches:
+  only:
+  - master
+
+services:
+  - docker
+ 
+before_install: 
+  - KUBE_VERSION=$(cat kube_version.txt)
+  - sudo apt-get update && sudo apt-get install -y apt-transport-https curl gzip
+  - curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+  - echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+  - sudo apt-get update && sudo apt-get install -qy kubeadm=${KUBE_VERSION}-00
+#  - sudo git lfs install --system
+  - git checkout master
+#  - git lfs pull
+  - wget http://gosspublic.alicdn.com/ossutil/1.6.19/ossutil64 -O /tmp/ossutil64
+  - chmod 755 /tmp/ossutil64
+
+script:
+  - echo "[download packages]"
+  - |
+    packages_dir="${KUBE_VERSION}/${OS}${OS_VERSION}/rpms"
+    [ ! -d ${packages_dir} ] && mkdir -pv ${packages_dir} || sudo rm -rfv ${packages_dir}/*
+  - docker run --rm -v `pwd`/${packages_dir}:/data:rw -v `pwd`/scripts:/scripts:rw  ${OS}:${OS_VERSION} /bin/bash -c "bash /scripts/archive.sh ${KUBE_VERSION}"
+  - docker rmi ${OS}:${OS_VERSION}
+  
+  - echo "[download images]"
+  - |
+    images_dir="${KUBE_VERSION}/${OS}${OS_VERSION}/images"
+    [ ! -d ${images_dir} ] && mkdir -pv ${images_dir} || sudo rm -rfv ${images_dir}/*
+  - kubeadm config images pull --kubernetes-version ${KUBE_VERSION}
+  - docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io | awk -F'/' '{print "docker tag " $0 " registry.aliyuncs.com/k8sxio/" $2}' | bash
+  - docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io)
+
+  - docker pull k8s.gcr.io/metrics-server/metrics-server:v0.3.7
+  - docker tag k8s.gcr.io/metrics-server/metrics-server:v0.3.7 registry.aliyuncs.com/k8sxio/metrics-server:v0.3.7
+  - docker rmi k8s.gcr.io/metrics-server/metrics-server:v0.3.7
+  
+  - docker pull quay.io/coreos/flannel:v0.12.0-amd64
+  - docker pull kubernetesui/metrics-scraper:v1.0.4
+  - docker pull kubernetesui/dashboard:v2.0.4
+  - docker pull jettech/kube-webhook-certgen:v1.2.2
+  - docker pull traefik/whoami:v1.6.0
+  - docker pull traefik:v2.3.1
+  - docker pull k8sgcr.lework.workers.dev/ingress-nginx/controller:v0.35.0
+  
+  - docker pull k8s.gcr.io/defaultbackend-amd64:1.5
+  - docker tag k8s.gcr.io/defaultbackend-amd64:1.5 registry.aliyuncs.com/k8sxio/defaultbackend-amd64:1.5
+  - docker rmi k8s.gcr.io/defaultbackend-amd64:1.5
+  - docker images
+ 
+  - master="etcd|kube-scheduler|kube-controller-manager|kube-apiserver|coredns"
+  - all="kube-proxy|flannel|pause"
+  
+  - echo "[save images]"
+  - docker save $(docker images --format '{{.Repository}}:{{.Tag}}' | grep -E "${master}") | gzip > ${images_dir}/master.tgz
+  - docker save $(docker images --format '{{.Repository}}:{{.Tag}}' | grep -E "${all}") | gzip > ${images_dir}/all.tgz
+  - docker save $(docker images --format '{{.Repository}}:{{.Tag}}' | grep -vE "${master}" | grep -vE "${all}") | gzip > ${images_dir}/worker.tgz
+
+  - echo "[download manifest]"
+  - |
+    manifest_dir="${KUBE_VERSION}/${OS}${OS_VERSION}/manifests"
+    [ ! -d ${manifest_dir} ] && mkdir -pv ${manifest_dir} || sudo rm -rfv ${manifest_dir}/*
+  - wget https://cdn.jsdelivr.net/gh/coreos/flannel@v0.12.0/Documentation/kube-flannel.yml -O ${manifest_dir}/kube-flannel.yml
+  - wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.7/components.yaml -O ${manifest_dir}/metrics-server.yml
+  - wget https://cdn.jsdelivr.net/gh/kubernetes/ingress-nginx@controller-v0.35.0/deploy/static/provider/baremetal/deploy.yaml -O ${manifest_dir}/ingress-nginx.yml
+  - wget https://cdn.jsdelivr.net/gh/kubernetes/dashboard@v2.0.4/aio/deploy/recommended.yaml -O ${manifest_dir}/kubernetes-dashboard.yml
+  
+  - echo "[Package file]"
+  - tar zcvf ${KUBE_VERSION}/${OS}${OS_VERSION}.tgz -C ${KUBE_VERSION}/${OS}${OS_VERSION}/ .
+  - ls -alhR ./*
+  - sudo rm -rfv ${KUBE_VERSION}/${OS}${OS_VERSION}/
+  - size=$(ls -lh ${KUBE_VERSION}/${OS}${OS_VERSION}.tgz | awk '{print $5}')
+  - sed -i "/| --------- |/a\\| ${KUBE_VERSION} | ${size} | [${OS}${OS_VERSION}](http://kainstall.oss-cn-shanghai.aliyuncs.com/${KUBE_VERSION}/${OS}${OS_VERSION}.tgz) |" README.md
+    
+after_success:
+  - echo "[Push file]"
+  - git config --global user.email "lework@yeah.net"
+  - git config --global user.name "lework"
+  - git remote rm origin
+  - sudo git remote add origin https://${GH_TOKEN}@github.com/lework/kainstall-offline.git > /dev/null 2>&1
+#  - sudo git lfs track "*.tgz"
+  - git add -A
+  - git commit -m "[SKIP CI] Add kube ${KUBE_VERSION} version ${OS}${OS_VERSION} offline package"
+  - git push origin master
+  - /tmp/ossutil64 config -e "${OSS_ENDPOINT}" -i "${OSS_AKI}" -k "${OSS_AKS}"
+  - /tmp/ossutil64 cp -f ${KUBE_VERSION}/${OS}${OS_VERSION}.tgz oss://kainstall/${KUBE_VERSION}/
