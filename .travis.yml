@@ -44,13 +44,13 @@ script:
   - docker tag k8s.gcr.io/metrics-server/metrics-server:v0.3.7 registry.aliyuncs.com/k8sxio/metrics-server:v0.3.7
   - docker rmi k8s.gcr.io/metrics-server/metrics-server:v0.3.7
   
-  - docker pull quay.io/coreos/flannel:v0.12.0-amd64
+  - docker pull quay.io/coreos/flannel:v0.13.0-amd64
   - docker pull kubernetesui/metrics-scraper:v1.0.4
   - docker pull kubernetesui/dashboard:v2.0.4
-  - docker pull jettech/kube-webhook-certgen:v1.2.2
+  - docker pull jettech/kube-webhook-certgen:v1.3.0
   - docker pull traefik/whoami:v1.6.0
   - docker pull traefik:v2.3.1
-  - docker pull k8sgcr.lework.workers.dev/ingress-nginx/controller:v0.35.0
+  - docker pull k8sgcr.lework.workers.dev/ingress-nginx/controller:v0.40.2
   
   - docker pull k8s.gcr.io/defaultbackend-amd64:1.5
   - docker tag k8s.gcr.io/defaultbackend-amd64:1.5 registry.aliyuncs.com/k8sxio/defaultbackend-amd64:1.5
@@ -69,17 +69,22 @@ script:
   - |
     manifest_dir="${KUBE_VERSION}/${OS}${OS_VERSION}/manifests"
     [ ! -d ${manifest_dir} ] && mkdir -pv ${manifest_dir} || sudo rm -rfv ${manifest_dir}/*
-  - wget https://cdn.jsdelivr.net/gh/coreos/flannel@v0.12.0/Documentation/kube-flannel.yml -O ${manifest_dir}/kube-flannel.yml
+  - wget https://cdn.jsdelivr.net/gh/coreos/flannel@v0.13.0/Documentation/kube-flannel.yml -O ${manifest_dir}/kube-flannel.yml
   - wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.7/components.yaml -O ${manifest_dir}/metrics-server.yml
-  - wget https://cdn.jsdelivr.net/gh/kubernetes/ingress-nginx@controller-v0.35.0/deploy/static/provider/baremetal/deploy.yaml -O ${manifest_dir}/ingress-nginx.yml
+  - wget https://cdn.jsdelivr.net/gh/kubernetes/ingress-nginx@controller-v0.40.2/deploy/static/provider/baremetal/deploy.yaml -O ${manifest_dir}/ingress-nginx.yml
   - wget https://cdn.jsdelivr.net/gh/kubernetes/dashboard@v2.0.4/aio/deploy/recommended.yaml -O ${manifest_dir}/kubernetes-dashboard.yml
   
   - echo "[Package file]"
+  - echo "[File]" >> ${KUBE_VERSION}/file_list.txt
+  - du -sh "${KUBE_VERSION}/${OS}${OS_VERSION}/*" >> ${KUBE_VERSION}/file_list.txt
+  - echo -e "\n[IMAGES]" >> ${KUBE_VERSION}/file_list.txt
+  - docker images --format '{{.Size}} {{.Repository}}:{{.Tag}}' >> ${KUBE_VERSION}/file_list.txt
+  - cat ${KUBE_VERSION}/file_list.txt
   - tar zcvf ${KUBE_VERSION}/${OS}${OS_VERSION}.tgz -C ${KUBE_VERSION}/${OS}${OS_VERSION}/ .
   - ls -alhR ./*
   - sudo rm -rfv ${KUBE_VERSION}/${OS}${OS_VERSION}/
   - size=$(ls -lh ${KUBE_VERSION}/${OS}${OS_VERSION}.tgz | awk '{print $5}')
-  - sed -i "/| --------- |/a\\| $(date +%Y-%m-%d_%T) | ${KUBE_VERSION} | ${size} | [${OS}${OS_VERSION}](http://kainstall.oss-cn-shanghai.aliyuncs.com/${KUBE_VERSION}/${OS}${OS_VERSION}.tgz) |" README.md
+  - sed -i "/| --------- |/a\\| $(date +%Y-%m-%d_%T) | ${KUBE_VERSION} | ${size} | [file_list.txt](./${KUBE_VERSION}/file_list.txt)  | [${OS}${OS_VERSION}](http://kainstall.oss-cn-shanghai.aliyuncs.com/${KUBE_VERSION}/${OS}${OS_VERSION}.tgz) |" README.md
     
 after_success:
   - echo "[Push file]"
