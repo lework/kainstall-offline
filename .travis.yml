@@ -76,7 +76,7 @@ script:
   
   - echo "[Package file]"
   - |
-    [ ! -d  file_list ] && mkdir -pv file_list
+    [ ! -d  file_list ] && mkdir -pv file_list || true
   - file_list="file_list/${KUBE_VERSION}_${OS}${OS_VERSION}.txt"
   - echo "[File]" > ${file_list}
   - du -ah ${KUBE_VERSION}/${OS}${OS_VERSION}/* >> ${file_list}
