@@ -76,9 +76,9 @@ script:
   
   - echo "[Package file]"
   - echo "[File]" >> ${KUBE_VERSION}/file_list.txt
-  - du -sh "${KUBE_VERSION}/${OS}${OS_VERSION}/*" >> ${KUBE_VERSION}/file_list.txt
+  - du -sh ${KUBE_VERSION}/${OS}${OS_VERSION}/* >> ${KUBE_VERSION}/file_list.txt
   - echo -e "\n[IMAGES]" >> ${KUBE_VERSION}/file_list.txt
-  - docker images --format '{{.Size}} {{.Repository}}:{{.Tag}}' >> ${KUBE_VERSION}/file_list.txt
+  - docker images --format '{{.Size}} {{.Repository}}:{{.Tag}}' | sort >> ${KUBE_VERSION}/file_list.txt
   - cat ${KUBE_VERSION}/file_list.txt
   - tar zcvf ${KUBE_VERSION}/${OS}${OS_VERSION}.tgz -C ${KUBE_VERSION}/${OS}${OS_VERSION}/ .
   - ls -alhR ./*
