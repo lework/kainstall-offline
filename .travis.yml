@@ -77,7 +77,7 @@ script:
   - echo "[Package file]"
   - |
     [ ! -d  file_list ] && mkdir -pv file_list
-  - file_list="file_list/${KUBE_VERSION}.txt"
+  - file_list="file_list/${KUBE_VERSION}_${OS}${OS_VERSION}.txt"
   - echo "[File]" > ${file_list}
   - du -ah ${KUBE_VERSION}/${OS}${OS_VERSION}/* >> ${file_list}
   - echo -e "\n[IMAGES]" >>  ${file_list}
@@ -87,7 +87,7 @@ script:
   - ls -alhR ./*
   - sudo rm -rfv ${KUBE_VERSION}/${OS}${OS_VERSION}/
   - size=$(ls -lh ${KUBE_VERSION}/${OS}${OS_VERSION}.tgz | awk '{print $5}')
-  - sed -i "/| --------- |/a\\| $(date +%Y-%m-%d_%T) | ${KUBE_VERSION} | ${size} | [${KUBE_VERSION}.txt](./${file_list})  | [${OS}${OS_VERSION}](http://kainstall.oss-cn-shanghai.aliyuncs.com/${KUBE_VERSION}/${OS}${OS_VERSION}.tgz) |" README.md
+  - sed -i "/| --------- |/a\\| $(date +%Y-%m-%d_%T) | ${KUBE_VERSION} | ${size} | [${KUBE_VERSION}_${OS}${OS_VERSION}.txt](./${file_list})  | [${OS}${OS_VERSION}](http://kainstall.oss-cn-shanghai.aliyuncs.com/${KUBE_VERSION}/${OS}${OS_VERSION}.tgz) |" README.md
     
 after_success:
   - echo "[Push file]"
