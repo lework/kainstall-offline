@@ -75,16 +75,19 @@ script:
   - wget https://cdn.jsdelivr.net/gh/kubernetes/dashboard@v2.0.4/aio/deploy/recommended.yaml -O ${manifest_dir}/kubernetes-dashboard.yml
   
   - echo "[Package file]"
-  - echo "[File]" >> ${KUBE_VERSION}/file_list.txt
-  - du -sh ${KUBE_VERSION}/${OS}${OS_VERSION}/* >> ${KUBE_VERSION}/file_list.txt
-  - echo -e "\n[IMAGES]" >> ${KUBE_VERSION}/file_list.txt
-  - docker images --format '{{.Size}} {{.Repository}}:{{.Tag}}' | sort >> ${KUBE_VERSION}/file_list.txt
-  - cat ${KUBE_VERSION}/file_list.txt
+  - |
+    [ ! -d  file_list ] && mkdir -pv file_list
+  - file_list="file_list/${KUBE_VERSION}.txt"
+  - echo "[File]" > ${file_list}
+  - du -ah ${KUBE_VERSION}/${OS}${OS_VERSION}/* >> ${file_list}
+  - echo -e "\n[IMAGES]" >>  ${file_list}
+  - docker images --format '{{.Size}} {{.Repository}}:{{.Tag}}' | sort >>  ${file_list}
+  - cat ${file_list}
   - tar zcvf ${KUBE_VERSION}/${OS}${OS_VERSION}.tgz -C ${KUBE_VERSION}/${OS}${OS_VERSION}/ .
   - ls -alhR ./*
   - sudo rm -rfv ${KUBE_VERSION}/${OS}${OS_VERSION}/
   - size=$(ls -lh ${KUBE_VERSION}/${OS}${OS_VERSION}.tgz | awk '{print $5}')
-  - sed -i "/| --------- |/a\\| $(date +%Y-%m-%d_%T) | ${KUBE_VERSION} | ${size} | [file_list.txt](./${KUBE_VERSION}/file_list.txt)  | [${OS}${OS_VERSION}](http://kainstall.oss-cn-shanghai.aliyuncs.com/${KUBE_VERSION}/${OS}${OS_VERSION}.tgz) |" README.md
+  - sed -i "/| --------- |/a\\| $(date +%Y-%m-%d_%T) | ${KUBE_VERSION} | ${size} | [${KUBE_VERSION}.txt](./${file_list})  | [${OS}${OS_VERSION}](http://kainstall.oss-cn-shanghai.aliyuncs.com/${KUBE_VERSION}/${OS}${OS_VERSION}.tgz) |" README.md
     
 after_success:
   - echo "[Push file]"
