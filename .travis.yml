@@ -49,7 +49,7 @@ script:
   - docker pull kubernetesui/dashboard:v2.0.4
   - docker pull jettech/kube-webhook-certgen:v1.3.0
   - docker pull traefik/whoami:v1.6.0
-  - docker pull traefik:v2.3.1
+  - docker pull traefik:v2.3.2
   - docker pull k8sgcr.lework.workers.dev/ingress-nginx/controller:v0.40.2
   
   - docker pull k8s.gcr.io/defaultbackend-amd64:1.5
