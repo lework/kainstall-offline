@@ -44,7 +44,7 @@ script:
   - docker tag k8s.gcr.io/metrics-server/metrics-server:v0.3.7 registry.aliyuncs.com/k8sxio/metrics-server:v0.3.7
   - docker rmi k8s.gcr.io/metrics-server/metrics-server:v0.3.7
   
-  - docker pull quay.io/coreos/flannel:v0.13.0-amd64
+  - docker pull quay.io/coreos/flannel:v0.13.0
   - docker pull kubernetesui/metrics-scraper:v1.0.4
   - docker pull kubernetesui/dashboard:v2.0.4
   - docker pull jettech/kube-webhook-certgen:v1.3.0
