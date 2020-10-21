@@ -138,7 +138,7 @@
 5.13MB registry.aliyuncs.com/k8sxio/defaultbackend-amd64:1.5
 54.7MB jettech/kube-webhook-certgen:v1.3.0
 55.4MB registry.aliyuncs.com/k8sxio/metrics-server:v0.3.7
-57.2MB quay.io/coreos/flannel:v0.13.0-amd64
+57.2MB quay.io/coreos/flannel:v0.13.0
 6.55MB traefik/whoami:v1.6.0
 683kB registry.aliyuncs.com/k8sxio/pause:3.2
-92.4MB traefik:v2.3.1
+92.4MB traefik:v2.3.2
