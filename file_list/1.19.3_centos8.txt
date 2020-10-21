@@ -1,4 +1,6 @@
 [File]
+38M	1.19.3/centos8/bins/kubeadm-linux-amd64
+38M	1.19.3/centos8/bins
 248M	1.19.3/centos8/images/worker.tgz
 161M	1.19.3/centos8/images/master.tgz
 65M	1.19.3/centos8/images/all.tgz
