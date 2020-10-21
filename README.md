@@ -12,16 +12,6 @@
 | 2020-10-21_01:47:30 | 1.19.3 | 797M | [1.19.3_centos7.txt](./file_list/1.19.3_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.3/centos7.tgz) |
 | 2020-10-19_15:30:48 | 1.19.3 | 790M | [1.19.3_centos8.txt](./file_list/1.19.3_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.3/centos8.tgz) |
 | 2020-10-19_15:17:39 | 1.19.3 | 797M | [1.19.3_centos7.txt](./file_list/1.19.3_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.3/centos7.tgz) |
-| 2020-10-19_14:54:42 | 1.19.3 | 790M | [file_list.txt](./1.19.3/file_list.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.3/centos8.tgz) |
-| 2020-10-19_14:49:05 | 1.19.3 | 797M | [file_list.txt](./1.19.3/file_list.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.3/centos7.tgz) |
-| 2020-10-18_12:04:27 | 1.19.3 | 804M |  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.3/centos8.tgz) |
-| 2020-10-18_11:59:14 | 1.19.3 | 800M |  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.3/centos7.tgz) |
-| 2020-10-18_11:52:05 | 1.18.10 | 839M |  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.18.10/centos8.tgz) |
-| 2020-10-18_11:46:46 | 1.18.10 | 835M |  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.18.10/centos7.tgz) |
-| 2020-10-18_11:37:34 | 1.17.13 | 838M |  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.17.13/centos8.tgz) |
-| 2020-10-18_11:32:20 | 1.17.13 | 833M |  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.17.13/centos7.tgz) |
-| 2020-10-18_11:21:08 | 1.16.15 | 823M |  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.16.15/centos8.tgz) |
-| 2020-10-18_11:15:39 | 1.16.15 | 819M |  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.16.15/centos7.tgz) |
 
 
 
@@ -53,6 +43,9 @@
 - ingress-nginx-controller
 - kubernetes-dashboard
 
+### bins
+
+- kubeadm-linux-amd64
 
 ## License
 

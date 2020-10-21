@@ -74,6 +74,12 @@ script:
   - wget https://cdn.jsdelivr.net/gh/kubernetes/ingress-nginx@controller-v0.40.2/deploy/static/provider/baremetal/deploy.yaml -O ${manifest_dir}/ingress-nginx.yml
   - wget https://cdn.jsdelivr.net/gh/kubernetes/dashboard@v2.0.4/aio/deploy/recommended.yaml -O ${manifest_dir}/kubernetes-dashboard.yml
   
+  - echo "[download bin]"
+  -  |
+    bin_dir="${KUBE_VERSION}/${OS}${OS_VERSION}/bins"
+    [ ! -d ${bin_dir} ] && mkdir -pv ${bin_dir} || sudo rm -rfv ${bin_dir}/*
+  - wget https://github.com/lework/kubeadm-certs/releases/download/v${KUBE_VERSION}/kubeadm-linux-amd64 -O ${bin_dir}/kubeadm-linux-amd64
+
   - echo "[Package file]"
   - |
     [ ! -d  file_list ] && mkdir -pv file_list || true
@@ -87,6 +93,7 @@ script:
   - ls -alhR ./*
   - sudo rm -rfv ${KUBE_VERSION}/${OS}${OS_VERSION}/
   - size=$(ls -lh ${KUBE_VERSION}/${OS}${OS_VERSION}.tgz | awk '{print $5}')
+  - sed -i "/${KUBE_VERSION}_${OS}${OS_VERSION}.txt/d" README.md
   - sed -i "/| --------- |/a\\| $(date +%Y-%m-%d_%T) | ${KUBE_VERSION} | ${size} | [${KUBE_VERSION}_${OS}${OS_VERSION}.txt](./${file_list})  | [${OS}${OS_VERSION}](http://kainstall.oss-cn-shanghai.aliyuncs.com/${KUBE_VERSION}/${OS}${OS_VERSION}.tgz) |" README.md
     
 after_success:
