@@ -82,6 +82,7 @@
 92K	1.19.3/centos7/rpms/all/bash-completion-2.1-8.el7.noarch.rpm
 64K	1.19.3/centos7/rpms/all/libseccomp-2.3.1-4.el7.x86_64.rpm
 500K	1.19.3/centos7/rpms/all/openssl-1.0.2k-19.el7.x86_64.rpm
+260K	1.19.3/centos7/rpms/all/audit-2.8.5-4.el7.x86_64.rpm
 100K	1.19.3/centos7/rpms/all/systemd-sysv-219-73.el7_8.9.x86_64.rpm
 176K	1.19.3/centos7/rpms/all/unzip-6.0-21.el7.x86_64.rpm
 44K	1.19.3/centos7/rpms/all/ipset-7.1-1.el7.x86_64.rpm
@@ -103,6 +104,7 @@
 464K	1.19.3/centos7/rpms/all/policycoreutils-python-2.5-34.el7.x86_64.rpm
 16K	1.19.3/centos7/rpms/all/fipscheck-lib-1.4.1-6.el7.x86_64.rpm
 28K	1.19.3/centos7/rpms/all/fipscheck-1.4.1-6.el7.x86_64.rpm
+72K	1.19.3/centos7/rpms/all/tcp_wrappers-libs-7.6-77.el7.x86_64.rpm
 48K	1.19.3/centos7/rpms/all/lm_sensors-libs-3.4.0-8.20160601gitf9185e5.el7.x86_64.rpm
 40K	1.19.3/centos7/rpms/all/python-IPy-0.75-6.el7.noarch.rpm
 428K	1.19.3/centos7/rpms/all/make-3.82-24.el7.x86_64.rpm
@@ -118,6 +120,7 @@
 20K	1.19.3/centos7/rpms/all/epel-release-7-12.noarch.rpm
 84K	1.19.3/centos7/rpms/all/audit-libs-python-2.8.5-4.el7.x86_64.rpm
 25M	1.19.3/centos7/rpms/all/docker-ce-19.03.13-3.el7.x86_64.rpm
+108K	1.19.3/centos7/rpms/all/audit-libs-2.8.5-4.el7.x86_64.rpm
 504K	1.19.3/centos7/rpms/all/selinux-policy-3.13.1-266.el7_8.1.noarch.rpm
 60K	1.19.3/centos7/rpms/all/libnetfilter_conntrack-1.0.6-1.el7_3.x86_64.rpm
 100K	1.19.3/centos7/rpms/all/libedit-3.0-12.20121213cvs.el7.x86_64.rpm
@@ -125,7 +128,7 @@
 24K	1.19.3/centos7/rpms/all/libnetfilter_cttimeout-1.0.0-7.el7.x86_64.rpm
 320K	1.19.3/centos7/rpms/all/sysstat-10.1.5-19.el7.x86_64.rpm
 113M	1.19.3/centos7/rpms/all
-341M	1.19.3/centos7/rpms
+342M	1.19.3/centos7/rpms
 
 [IMAGES]
 111MB registry.aliyuncs.com/k8sxio/kube-controller-manager:v1.19.3
