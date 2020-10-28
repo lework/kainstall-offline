@@ -21,7 +21,7 @@
 
 | 用途    | 包名                                                         |
 | ------- | ------------------------------------------------------------ |
-| all     | sshpass openssh wget gzip ipvsadm ipset sysstat conntrack unzip epel-release chrony bash-completion docker-ce docker-ce-cli containerd.io libselinux libseccomp systemd systemd-libs systemd-python |
+| all     | sshpass openssh wget gzip ipvsadm ipset sysstat conntrack unzip epel-release chrony bash-completion docker-ce docker-ce-cli containerd.io libselinux libseccomp systemd systemd-libs systemd-python audit |
 | kubeadm | kubeadm kubelet  kubectl                                     |
 | worker  | haproxy                                                      |
 | kernel  | kernel-ml kernel-devel                                       |
@@ -43,7 +43,7 @@
 
 ### bins
 
-- kubeadm-linux-amd64
+- kubeadm-linux-amd64 ([10years cert](https://github.com/lework/kubeadm-certs))
 
 ## License
 

@@ -16,9 +16,9 @@ yum install -y --downloadonly --downloaddir=kernel --enablerepo=elrepo-kernel ke
 ls -alhR kernel/*
 
 echo "[download common node package]"
-yum install -y --downloadonly --downloaddir=all sshpass openssh openssl wget gzip ipvsadm ipset sysstat conntrack libseccomp unzip epel-release chrony bash-completion
+yum install -y --downloadonly --downloaddir=all sshpass openssh openssl wget gzip ipvsadm ipset sysstat conntrack libseccomp unzip epel-release chrony bash-completion audit
 [ "${ver}" == "7" ] && yum install -y --downloadonly --downloaddir=all systemd-python
-yum reinstall -y --downloadonly --downloaddir=all gzip wget libselinux libseccomp systemd systemd-libs
+yum reinstall -y --downloadonly --downloaddir=all gzip wget libselinux libseccomp systemd systemd-libs audit-libs
 
 echo "[download docker package]"
 yum-config-manager --add-repo \
