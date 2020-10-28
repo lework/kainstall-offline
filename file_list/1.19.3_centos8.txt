@@ -98,6 +98,7 @@
 76K	1.19.3/centos8/rpms/all/libcgroup-0.41-19.el8.x86_64.rpm
 29M	1.19.3/centos8/rpms/all/containerd.io-1.3.7-3.1.el8.x86_64.rpm
 40K	1.19.3/centos8/rpms/all/timedatex-0.5-3.el8.x86_64.rpm
+344K	1.19.3/centos8/rpms/all/initscripts-10.00.6-1.el8_2.2.x86_64.rpm
 588K	1.19.3/centos8/rpms/all/iptables-1.8.4-10.el8_2.1.x86_64.rpm
 32K	1.19.3/centos8/rpms/all/sshpass-1.06-9.el8.x86_64.rpm
 6.7M	1.19.3/centos8/rpms/all/mozjs60-60.9.0-4.el8.x86_64.rpm
@@ -107,13 +108,15 @@
 120K	1.19.3/centos8/rpms/all/libxkbcommon-0.9.1-1.el8.x86_64.rpm
 432K	1.19.3/centos8/rpms/all/sysstat-11.7.3-2.el8.x86_64.rpm
 608K	1.19.3/centos8/rpms/all/python3-setools-4.2.2-2.el8.x86_64.rpm
+260K	1.19.3/centos8/rpms/all/audit-3.0-0.17.20191104git1c2f876.el8.x86_64.rpm
+124K	1.19.3/centos8/rpms/all/audit-libs-3.0-0.17.20191104git1c2f876.el8.x86_64.rpm
 356K	1.19.3/centos8/rpms/all/checkpolicy-2.9-1.el8.x86_64.rpm
 248K	1.19.3/centos8/rpms/all/libselinux-utils-2.9-3.el8.x86_64.rpm
 80K	1.19.3/centos8/rpms/all/rpm-plugin-selinux-4.14.2-37.el8.x86_64.rpm
 504K	1.19.3/centos8/rpms/all/openssh-8.0p1-4.el8_1.x86_64.rpm
 3.6M	1.19.3/centos8/rpms/all/systemd-239-31.el8_2.2.x86_64.rpm
 131M	1.19.3/centos8/rpms/all
-342M	1.19.3/centos8/rpms
+343M	1.19.3/centos8/rpms
 
 [IMAGES]
 111MB registry.aliyuncs.com/k8sxio/kube-controller-manager:v1.19.3
