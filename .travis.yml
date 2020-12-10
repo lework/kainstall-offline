@@ -40,16 +40,16 @@ script:
   - docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io | awk -F'/' '{print "docker tag " $0 " registry.aliyuncs.com/k8sxio/" $2}' | bash
   - docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io)
 
-  - docker pull k8s.gcr.io/metrics-server/metrics-server:v0.4.0
-  - docker tag k8s.gcr.io/metrics-server/metrics-server:v0.4.0 registry.aliyuncs.com/k8sxio/metrics-server:v0.4.0
-  - docker rmi k8s.gcr.io/metrics-server/metrics-server:v0.4.0
+  - docker pull k8s.gcr.io/metrics-server/metrics-server:v0.4.1
+  - docker tag k8s.gcr.io/metrics-server/metrics-server:v0.4.1 registry.aliyuncs.com/k8sxio/metrics-server:v0.4.1
+  - docker rmi k8s.gcr.io/metrics-server/metrics-server:v0.4.1
   
   - docker pull quay.io/coreos/flannel:v0.13.0
-  - docker pull kubernetesui/metrics-scraper:v1.0.4
-  - docker pull kubernetesui/dashboard:v2.0.4
+  - docker pull kubernetesui/metrics-scraper:v1.0.6
+  - docker pull kubernetesui/dashboard:v2.0.5
   - docker pull jettech/kube-webhook-certgen:v1.5.0
   - docker pull traefik/whoami:v1.6.0
-  - docker pull traefik:v2.3.2
+  - docker pull traefik:v2.3.4
   - docker pull k8sgcr.lework.workers.dev/ingress-nginx/controller:v0.41.2
   
   - docker pull k8s.gcr.io/defaultbackend-amd64:1.5
@@ -70,9 +70,9 @@ script:
     manifest_dir="${KUBE_VERSION}/${OS}${OS_VERSION}/manifests"
     [ ! -d ${manifest_dir} ] && mkdir -pv ${manifest_dir} || sudo rm -rfv ${manifest_dir}/*
   - wget https://cdn.jsdelivr.net/gh/coreos/flannel@v0.13.0/Documentation/kube-flannel.yml -O ${manifest_dir}/kube-flannel.yml
-  - wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.4.0/components.yaml -O ${manifest_dir}/metrics-server.yml
+  - wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.4.1/components.yaml -O ${manifest_dir}/metrics-server.yml
   - wget https://cdn.jsdelivr.net/gh/kubernetes/ingress-nginx@controller-v0.41.2/deploy/static/provider/baremetal/deploy.yaml -O ${manifest_dir}/ingress-nginx.yml
-  - wget https://cdn.jsdelivr.net/gh/kubernetes/dashboard@v2.0.4/aio/deploy/recommended.yaml -O ${manifest_dir}/kubernetes-dashboard.yml
+  - wget https://cdn.jsdelivr.net/gh/kubernetes/dashboard@v2.0.5/aio/deploy/recommended.yaml -O ${manifest_dir}/kubernetes-dashboard.yml
   
   - echo "[download bin]"
   -  |
