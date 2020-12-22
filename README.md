@@ -8,14 +8,14 @@
 
 | 时间 | kube 版本 | 文件大小 | 内容列表 | 下载链接 | kainstall 版本 |
 | --------- | -------- | ----------- | ----------- | ----------- | ----------- |
-| 2020-12-10_07:17:19 | 1.20.0 | 852M | [1.20.0_centos8.txt](./file_list/1.20.0_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.20.0/centos8.tgz) | master |
-| 2020-12-10_07:12:05 | 1.20.0 | 822M | [1.20.0_centos7.txt](./file_list/1.20.0_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.20.0/centos7.tgz) | master |
-| 2020-12-10_06:42:49 | 1.19.5 | 850M | [1.19.5_centos8.txt](./file_list/1.19.5_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.5/centos8.tgz) | master |
-| 2020-12-10_06:37:37 | 1.19.5 | 820M | [1.19.5_centos7.txt](./file_list/1.19.5_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.5/centos7.tgz) | master |
-| 2020-12-10_06:24:31 | 1.18.13 | 886M | [1.18.13_centos8.txt](./file_list/1.18.13_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.18.13/centos8.tgz) | master |
-| 2020-12-10_06:18:06 | 1.18.13 | 856M | [1.18.13_centos7.txt](./file_list/1.18.13_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.18.13/centos7.tgz) | master |
-| 2020-12-10_05:44:29 | 1.17.15 | 884M | [1.17.15_centos8.txt](./file_list/1.17.15_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.17.15/centos8.tgz) | master |
-| 2020-12-10_05:38:45 | 1.17.15 | 854M | [1.17.15_centos7.txt](./file_list/1.17.15_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.17.15/centos7.tgz) | master |
+| 2020-12-10_07:17:19 | 1.20.0 | 852M | [1.20.0_centos8.txt](./file_list/1.20.0_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.20.0/centos8.tgz) |  v1.2.0 |
+| 2020-12-10_07:12:05 | 1.20.0 | 822M | [1.20.0_centos7.txt](./file_list/1.20.0_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.20.0/centos7.tgz) |  v1.2.0 |
+| 2020-12-10_06:42:49 | 1.19.5 | 850M | [1.19.5_centos8.txt](./file_list/1.19.5_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.5/centos8.tgz) | v1.2.0 |
+| 2020-12-10_06:37:37 | 1.19.5 | 820M | [1.19.5_centos7.txt](./file_list/1.19.5_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.5/centos7.tgz) | v1.2.0 |
+| 2020-12-10_06:24:31 | 1.18.13 | 886M | [1.18.13_centos8.txt](./file_list/1.18.13_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.18.13/centos8.tgz) | v1.2.0 |
+| 2020-12-10_06:18:06 | 1.18.13 | 856M | [1.18.13_centos7.txt](./file_list/1.18.13_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.18.13/centos7.tgz) | v1.2.0 |
+| 2020-12-10_05:44:29 | 1.17.15 | 884M | [1.17.15_centos8.txt](./file_list/1.17.15_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.17.15/centos8.tgz) | v1.2.0 |
+| 2020-12-10_05:38:45 | 1.17.15 | 854M | [1.17.15_centos7.txt](./file_list/1.17.15_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.17.15/centos7.tgz) | v1.2.0 |
 | 2020-11-13_03:06:54 | 1.19.4 | 810M | [1.19.4_centos8.txt](./file_list/1.19.4_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.4/centos8.tgz) | v1.1.0 |
 | 2020-11-13_02:58:51 | 1.19.4 | 805M | [1.19.4_centos7.txt](./file_list/1.19.4_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.4/centos7.tgz) | v1.1.0 |
 | 2020-11-13_02:31:36 | 1.18.12 | 846M | [1.18.12_centos8.txt](./file_list/1.18.12_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.18.12/centos8.tgz) | v1.1.0 |

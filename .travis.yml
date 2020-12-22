@@ -46,11 +46,14 @@ script:
   
   - docker pull quay.io/coreos/flannel:v0.13.0
   - docker pull kubernetesui/metrics-scraper:v1.0.6
-  - docker pull kubernetesui/dashboard:v2.0.5
-  - docker pull jettech/kube-webhook-certgen:v1.5.0
+  - docker pull kubernetesui/dashboard:v2.1.0
   - docker pull traefik/whoami:v1.6.0
-  - docker pull traefik:v2.3.4
-  - docker pull k8sgcr.lework.workers.dev/ingress-nginx/controller:v0.41.2
+  - docker pull traefik:v2.3.6
+  
+  - docker pull jettech/kube-webhook-certgen:v1.5.0
+  - docker pull k8s.gcr.io/ingress-nginx/controller:v0.41.2
+  - docker tag  k8s.gcr.io/ingress-nginx/controller:v0.41.2 k8sgcr.lework.workers.dev/ingress-nginx/controller:v0.41.2
+  - docker rmi k8s.gcr.io/ingress-nginx/controller:v0.41.2
   
   - docker pull k8s.gcr.io/defaultbackend-amd64:1.5
   - docker tag k8s.gcr.io/defaultbackend-amd64:1.5 registry.aliyuncs.com/k8sxio/defaultbackend-amd64:1.5
@@ -72,7 +75,7 @@ script:
   - wget https://cdn.jsdelivr.net/gh/coreos/flannel@v0.13.0/Documentation/kube-flannel.yml -O ${manifest_dir}/kube-flannel.yml
   - wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.4.1/components.yaml -O ${manifest_dir}/metrics-server.yml
   - wget https://cdn.jsdelivr.net/gh/kubernetes/ingress-nginx@controller-v0.41.2/deploy/static/provider/baremetal/deploy.yaml -O ${manifest_dir}/ingress-nginx.yml
-  - wget https://cdn.jsdelivr.net/gh/kubernetes/dashboard@v2.0.5/aio/deploy/recommended.yaml -O ${manifest_dir}/kubernetes-dashboard.yml
+  - wget https://cdn.jsdelivr.net/gh/kubernetes/dashboard@v2.1.0/aio/deploy/recommended.yaml -O ${manifest_dir}/kubernetes-dashboard.yml
   
   - echo "[download bin]"
   -  |
