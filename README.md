@@ -8,6 +8,7 @@
 
 | 时间 | kube 版本 | 文件大小 | 内容列表 | 下载链接 | kainstall 版本 |
 | --------- | -------- | ----------- | ----------- | ----------- | ----------- |
+| 2021-01-20_09:49:10 | 1.17.17 | 884M | [1.17.17_centos8.txt](./file_list/1.17.17_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.17.17/centos8.tgz) | master |
 | 2021-01-20_09:43:15 | 1.17.17 | 852M | [1.17.17_centos7.txt](./file_list/1.17.17_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.17.17/centos7.tgz) | master |
 | 2021-01-20_09:05:48 | 1.18.15 | 886M | [1.18.15_centos8.txt](./file_list/1.18.15_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.18.15/centos8.tgz) | master |
 | 2021-01-20_09:00:15 | 1.18.15 | 854M | [1.18.15_centos7.txt](./file_list/1.18.15_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.18.15/centos7.tgz) | master |
@@ -15,7 +16,6 @@
 | 2021-01-20_08:37:56 | 1.19.7 | 818M | [1.19.7_centos7.txt](./file_list/1.19.7_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.7/centos7.tgz) | master |
 | 2021-01-20_05:16:22 | 1.20.2 | 853M | [1.20.2_centos8.txt](./file_list/1.20.2_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.20.2/centos8.tgz) | master |
 | 2021-01-20_05:11:03 | 1.20.2 | 821M | [1.20.2_centos7.txt](./file_list/1.20.2_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.20.2/centos7.tgz) | master |
-| 2021-01-15_07:51:53 | 1.17.17 | 884M | [1.17.17_centos8.txt](./file_list/1.17.17_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.17.17/centos8.tgz) | master |
 | 2020-12-22_04:19:29 | 1.20.1 | 855M | [1.20.1_centos8.txt](./file_list/1.20.1_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.20.1/centos8.tgz) | v1.3.0 |
 | 2020-12-22_04:14:19 | 1.20.1 | 825M | [1.20.1_centos7.txt](./file_list/1.20.1_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.20.1/centos7.tgz) | v1.3.0 |
 | 2020-12-22_03:46:24 | 1.19.6 | 853M | [1.19.6_centos8.txt](./file_list/1.19.6_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.6/centos8.tgz) | v1.3.0 |
