@@ -8,10 +8,10 @@
 
 | 时间 | kube 版本 | 文件大小 | 内容列表 | 下载链接 | kainstall 版本 |
 | --------- | -------- | ----------- | ----------- | ----------- | ----------- |
+| 2021-01-20_08:43:17 | 1.19.7 | 850M | [1.19.7_centos8.txt](./file_list/1.19.7_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.7/centos8.tgz) | master |
 | 2021-01-20_08:37:56 | 1.19.7 | 818M | [1.19.7_centos7.txt](./file_list/1.19.7_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.7/centos7.tgz) | master |
 | 2021-01-20_05:16:22 | 1.20.2 | 853M | [1.20.2_centos8.txt](./file_list/1.20.2_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.20.2/centos8.tgz) | master |
 | 2021-01-20_05:11:03 | 1.20.2 | 821M | [1.20.2_centos7.txt](./file_list/1.20.2_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.20.2/centos7.tgz) | master |
-| 2021-01-15_09:40:49 | 1.19.7 | 850M | [1.19.7_centos8.txt](./file_list/1.19.7_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.7/centos8.tgz) | master |
 | 2021-01-15_08:41:35 | 1.18.15 | 886M | [1.18.15_centos8.txt](./file_list/1.18.15_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.18.15/centos8.tgz) | master |
 | 2021-01-15_08:31:53 | 1.18.15 | 859M | [1.18.15_centos7.txt](./file_list/1.18.15_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.18.15/centos7.tgz) | master |
 | 2021-01-15_07:51:53 | 1.17.17 | 884M | [1.17.17_centos8.txt](./file_list/1.17.17_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.17.17/centos8.tgz) | master |
