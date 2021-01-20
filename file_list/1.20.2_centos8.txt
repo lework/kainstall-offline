@@ -14,15 +14,15 @@
 36K	1.20.2/centos8/rpms/kernel/perl-Carp-1.42-396.el8.noarch.rpm
 102M	1.20.2/centos8/rpms/kernel/linux-firmware-20200619-101.git3890db36.el8_3.noarch.rpm
 72K	1.20.2/centos8/rpms/kernel/perl-Scalar-List-Utils-1.49-2.el8.x86_64.rpm
+31M	1.20.2/centos8/rpms/kernel/kernel-ml-core-5.10.9-1.el8.elrepo.x86_64.rpm
 1.6M	1.20.2/centos8/rpms/kernel/perl-libs-5.26.3-416.el8.x86_64.rpm
 148K	1.20.2/centos8/rpms/kernel/perl-IO-1.38-416.el8.x86_64.rpm
 80K	1.20.2/centos8/rpms/kernel/perl-Errno-1.28-416.el8.x86_64.rpm
 64K	1.20.2/centos8/rpms/kernel/perl-Socket-2.027-3.el8.x86_64.rpm
-60K	1.20.2/centos8/rpms/kernel/kernel-ml-5.10.7-1.el8.elrepo.x86_64.rpm
 52K	1.20.2/centos8/rpms/kernel/perl-threads-shared-1.58-2.el8.x86_64.rpm
 76K	1.20.2/centos8/rpms/kernel/perl-macros-5.26.3-416.el8.x86_64.rpm
 96K	1.20.2/centos8/rpms/kernel/perl-PathTools-3.74-1.el8.x86_64.rpm
-31M	1.20.2/centos8/rpms/kernel/kernel-ml-core-5.10.7-1.el8.elrepo.x86_64.rpm
+60K	1.20.2/centos8/rpms/kernel/kernel-ml-5.10.9-1.el8.elrepo.x86_64.rpm
 68K	1.20.2/centos8/rpms/kernel/perl-threads-2.21-2.el8.x86_64.rpm
 32K	1.20.2/centos8/rpms/kernel/perl-constant-1.33-396.el8.noarch.rpm
 17M	1.20.2/centos8/rpms/kernel/kernel-devel-4.18.0-240.1.1.el8_3.x86_64.rpm
@@ -31,8 +31,8 @@
 16K	1.20.2/centos8/rpms/kernel/elrepo-release-8.el8.elrepo.noarch.rpm
 88K	1.20.2/centos8/rpms/kernel/perl-Unicode-Normalize-1.25-396.el8.x86_64.rpm
 40K	1.20.2/centos8/rpms/kernel/perl-Exporter-5.72-396.el8.noarch.rpm
-26M	1.20.2/centos8/rpms/kernel/kernel-ml-modules-5.10.7-1.el8.elrepo.x86_64.rpm
 44K	1.20.2/centos8/rpms/kernel/perl-File-Path-2.15-2.el8.noarch.rpm
+26M	1.20.2/centos8/rpms/kernel/kernel-ml-modules-5.10.9-1.el8.elrepo.x86_64.rpm
 183M	1.20.2/centos8/rpms/kernel
 1.4M	1.20.2/centos8/rpms/worker/haproxy-1.8.23-5.el8.x86_64.rpm
 1.4M	1.20.2/centos8/rpms/worker
