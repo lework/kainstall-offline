@@ -8,6 +8,7 @@
 
 | 时间 | kube 版本 | 文件大小 | 内容列表 | 下载链接 | kainstall 版本 |
 | --------- | -------- | ----------- | ----------- | ----------- | ----------- |
+| 2021-03-22_04:54:25 | 1.19.9 | 817M | [1.19.9_centos7.txt](./file_list/1.19.9_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.19.9/centos7.tgz) | master |
 | 2021-03-22_03:02:42 | 1.18.17 | 885M | [1.18.17_centos8.txt](./file_list/1.18.17_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.18.17/centos8.tgz) | master |
 | 2021-03-22_02:54:32 | 1.18.17 | 853M | [1.18.17_centos7.txt](./file_list/1.18.17_centos7.txt)  | [centos7](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.18.17/centos7.tgz) | master |
 | 2021-02-23_07:16:09 | 1.20.4 | 853M | [1.20.4_centos8.txt](./file_list/1.20.4_centos8.txt)  | [centos8](http://kainstall.oss-cn-shanghai.aliyuncs.com/1.20.4/centos8.tgz) | v1.4.1 |
