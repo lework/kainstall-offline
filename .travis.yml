@@ -14,11 +14,11 @@ before_install:
   - echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
   - sudo apt-get update && sudo apt-get install -qy kubeadm=${KUBE_VERSION}-00
   #- wget http://gosspublic.alicdn.com/ossutil/1.6.19/ossutil64 -O /tmp/ossutil64
-  - chmod 755 /tmp/ossutil64
+  #- chmod 755 /tmp/ossutil64
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
 script:
-  - bash scripts/start.sh
+  - sudo bash scripts/start.sh
     
 after_success:
   - echo "[Push file]"
