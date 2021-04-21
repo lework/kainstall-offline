@@ -22,15 +22,16 @@ for key in ${!OS_INFO[@]}; do
     echo "[Package file]"
     file_desc_dir="file_list/${KUBE_VERSION}"
     [ ! -d $file_desc_dir ] && mkdir -pv $file_desc_dir || true
-    file_list="$file_desc_dir/${KUBE_VERSION}_${OS}${OS_VERSION}.txt"
+    file_list="$file_desc_dir/${KUBE_VERSION}_${key}${release}.txt"
     echo "[File]" > ${file_list}
     du -ah ${os_dir}* >> ${file_list}
     echo -e "\n[IMAGES]" >>  ${file_list}
     docker images --format '{{.Size}} {{.Repository}}:{{.Tag}}' | sort >>  ${file_list}
     cat ${file_list}
-    tar zcvf ${KUBE_VERSION}/${KUBE_VERSION}_${key}${release}.tgz -C ${os_dir}/
+    tar zcvf ${KUBE_VERSION}/${KUBE_VERSION}_${key}${release}.tgz -C ${os_dir}/ .
   done
 done
 
 echo $PWD
-ls -alhR ./*
+mv ${KUBE_VERSION} /tmp/
+ls -alhR /tmp/*

@@ -45,10 +45,10 @@ function archive_manifests() {
   [ ! -d ${manifest_dir} ] && mkdir -pv ${manifest_dir} || sudo rm -rfv ${manifest_dir}/*
   
   echo "[download manifest]"
-  wget https://cdn.jsdelivr.net/gh/coreos/flannel@v0.13.0/Documentation/kube-flannel.yml -O ${manifest_dir}/kube-flannel.yml
-  wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.4.2/components.yaml -O ${manifest_dir}/metrics-server.yml
-  wget https://cdn.jsdelivr.net/gh/kubernetes/ingress-nginx@controller-v0.44.0/deploy/static/provider/baremetal/deploy.yaml -O ${manifest_dir}/ingress-nginx.yml
-  wget https://cdn.jsdelivr.net/gh/kubernetes/dashboard@v2.2.0/aio/deploy/recommended.yaml -O ${manifest_dir}/kubernetes-dashboard.yml
+  wget https://cdn.jsdelivr.net/gh/coreos/flannel@v0.13.0/Documentation/kube-flannel.yml -o /dev/null -O ${manifest_dir}/kube-flannel.yml
+  wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.4.2/components.yaml -o /dev/null -O ${manifest_dir}/metrics-server.yml
+  wget https://cdn.jsdelivr.net/gh/kubernetes/ingress-nginx@controller-v0.44.0/deploy/static/provider/baremetal/deploy.yaml -o /dev/null -O ${manifest_dir}/ingress-nginx.yml
+  wget https://cdn.jsdelivr.net/gh/kubernetes/dashboard@v2.2.0/aio/deploy/recommended.yaml -o /dev/null -O ${manifest_dir}/kubernetes-dashboard.yml
 }
 
 function archive_bins() {
@@ -56,7 +56,7 @@ function archive_bins() {
   [ ! -d ${bin_dir} ] && mkdir -pv ${bin_dir} || sudo rm -rfv ${bin_dir}/*
   
   echo "[download bin]"
-  wget https://github.com/lework/kubeadm-certs/releases/download/v${KUBE_VERSION}/kubeadm-linux-amd64 -O ${bin_dir}/kubeadm-linux-amd64
+  wget https://github.com/lework/kubeadm-certs/releases/download/v${KUBE_VERSION}/kubeadm-linux-amd64 -o /dev/null -O ${bin_dir}/kubeadm-linux-amd64
 }
 
 archive_images $1
