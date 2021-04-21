@@ -22,12 +22,16 @@ script:
     
 after_success:
   - echo "[Push file]"
+  - cd ${TRAVIS_BUILD_DIR}/
+  - git checkout master
+  - git pull
+  - git status    
   - git config --global user.email "lework@yeah.net"
   - git config --global user.name "lework"
   - git remote rm origin
   - sudo git remote add origin https://${GH_TOKEN}@github.com/lework/kainstall-offline.git > /dev/null 2>&1
   - git add -A
-  - git commit -m "[SKIP CI] Add kube ${KUBE_VERSION} version ${OS}${OS_VERSION} offline package"
+  - git commit -m "[SKIP CI] Add kube ${KUBE_VERSION} offline package"
   - git push origin master
 
 deploy:
@@ -36,7 +40,7 @@ deploy:
   tag_name: "${KUBE_VERSION}"
   file: "/tmp/${KUBE_VERSION}/*.tgz"
   file_glob: "true"
-  release_notes: "kubernetes offline package.  \n Files: https://github.com/lework/kainstall-offline/tree/${KUBE_VERSION}/file_list/${KUBE_VERSION} \n tools: https://github.com/lework/kainstall"
+  release_notes: "kubernetes offline package.  \n Files: https://github.com/lework/kainstall-offline/tree/${KUBE_VERSION}/file_list/${KUBE_VERSION} \n Tool: https://github.com/lework/kainstall"
   skip_cleanup: true
   overwrite: true
   edge: true # opt in to dpl v2

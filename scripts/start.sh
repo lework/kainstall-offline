@@ -34,4 +34,4 @@ done
 
 echo $PWD
 mv ${KUBE_VERSION} /tmp/
-ls -alhR /tmp/*
+ls -alhR /tmp/${KUBE_VERSION}/*
