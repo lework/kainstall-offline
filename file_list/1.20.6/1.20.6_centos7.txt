@@ -2,8 +2,8 @@
 38M	1.20.6/1.20.6_centos7/bins/kubeadm-linux-amd64
 38M	1.20.6/1.20.6_centos7/bins
 244M	1.20.6/1.20.6_centos7/images/worker.tgz
-163M	1.20.6/1.20.6_centos7/images/master.tgz
-65M	1.20.6/1.20.6_centos7/images/all.tgz
+150M	1.20.6/1.20.6_centos7/images/master.tgz
+78M	1.20.6/1.20.6_centos7/images/all.tgz
 471M	1.20.6/1.20.6_centos7/images
 53M	1.20.6/1.20.6_centos7/packages/kernel/kernel-ml-5.11.16-1.el7.elrepo.x86_64.rpm
 81M	1.20.6/1.20.6_centos7/packages/kernel/linux-firmware-20200421-80.git78c0348.el7_9.noarch.rpm
@@ -141,7 +141,6 @@
 116MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-controller-manager:v1.20.6
 118MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-proxy:v1.20.6
 122MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-apiserver:v1.20.6
-204MB centos:7
 225MB kubernetesui/dashboard:v2.2.0
 253MB registry.cn-hangzhou.aliyuncs.com/kainstall/etcd:3.4.13-0
 279MB registry.cn-hangzhou.aliyuncs.com/kainstall/controller:v0.44.0

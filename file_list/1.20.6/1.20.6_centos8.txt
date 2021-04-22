@@ -2,8 +2,8 @@
 38M	1.20.6/1.20.6_centos8/bins/kubeadm-linux-amd64
 38M	1.20.6/1.20.6_centos8/bins
 244M	1.20.6/1.20.6_centos8/images/worker.tgz
-163M	1.20.6/1.20.6_centos8/images/master.tgz
-65M	1.20.6/1.20.6_centos8/images/all.tgz
+150M	1.20.6/1.20.6_centos8/images/master.tgz
+78M	1.20.6/1.20.6_centos8/images/all.tgz
 471M	1.20.6/1.20.6_centos8/images
 32K	1.20.6/1.20.6_centos8/packages/kernel/perl-Text-Tabs+Wrap-2013.0523-395.el8.noarch.rpm
 36K	1.20.6/1.20.6_centos8/packages/kernel/perl-Carp-1.42-396.el8.noarch.rpm
@@ -131,7 +131,6 @@
 118MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-proxy:v1.20.6
 122MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-apiserver:v1.20.6
 204MB centos:7
-209MB centos:8
 225MB kubernetesui/dashboard:v2.2.0
 253MB registry.cn-hangzhou.aliyuncs.com/kainstall/etcd:3.4.13-0
 279MB registry.cn-hangzhou.aliyuncs.com/kainstall/controller:v0.44.0
