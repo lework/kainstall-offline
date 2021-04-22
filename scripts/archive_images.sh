@@ -7,7 +7,7 @@ function archive_images() {
   
   echo "[download images]"
   kubeadm config images pull --kubernetes-version ${KUBE_VERSION}
-  docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io | awk -F'/' '{print "docker tag " $0 " registry.cn-hangzhou.aliyuncs.com/kainstall/" $2}' | bash
+  docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io | awk -F'k8s.gcr.io/' '{print "docker tag " $0 " registry.cn-hangzhou.aliyuncs.com/kainstall/" $2}' | bash
   docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io)
   
   docker pull k8s.gcr.io/metrics-server/metrics-server:v0.4.2
@@ -30,8 +30,8 @@ function archive_images() {
   docker rmi k8s.gcr.io/defaultbackend-amd64:1.5
   docker images
    
-  master="etcd|kube-scheduler|kube-controller-manager|kube-apiserver|coredns"
-  all="kube-proxy|flannel|pause"
+  master="etcd|kube-scheduler|kube-controller-manager|kube-apiserver"
+  all="kube-proxy|coredns|flannel|pause"
     
   echo "[save images]"
   docker save $(docker images --format '{{.Repository}}:{{.Tag}}' | grep -E "${master}") | gzip > ${images_dir}/master.tgz

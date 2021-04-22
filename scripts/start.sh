@@ -26,7 +26,7 @@ for key in ${!OS_INFO[@]}; do
     echo "[File]" > ${file_list}
     du -ah ${os_dir}* >> ${file_list}
     echo -e "\n[IMAGES]" >>  ${file_list}
-    docker images --format '{{.Size}} {{.Repository}}:{{.Tag}}' | sort >>  ${file_list}
+    docker images --format '{{.Size}} {{.Repository}}:{{.Tag}}' | grep -v ${key}:${release} | sort >>  ${file_list}
     cat ${file_list}
     tar zcvf ${KUBE_VERSION}/${KUBE_VERSION}_${key}${release}.tgz -C ${os_dir}/ .
   done
