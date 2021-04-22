@@ -33,6 +33,7 @@ after_success:
   - git add -A
   - git commit -m "[SKIP CI] Add kube ${KUBE_VERSION} offline package"
   - git push origin master
+  - git pull
 
 deploy:
   provider: releases
@@ -40,7 +41,7 @@ deploy:
   tag_name: "${KUBE_VERSION}"
   file: "/tmp/${KUBE_VERSION}/*.tgz"
   file_glob: "true"
-  release_notes: "kubernetes offline package.  \n Files: https://github.com/lework/kainstall-offline/tree/${KUBE_VERSION}/file_list/${KUBE_VERSION} \n Tool: https://github.com/lework/kainstall"
+  release_notes: "Kubernetes offline package.  \nFiles: https://github.com/lework/kainstall-offline/tree/master/file_list/${KUBE_VERSION} \nTool: https://github.com/lework/kainstall"
   skip_cleanup: true
   overwrite: true
   edge: true # opt in to dpl v2
