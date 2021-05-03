@@ -14,7 +14,7 @@ function download_deb() {
   path=${1-./}
   packages=${@:2}
   
-  apt-get --download-only -o Dir::Cache::archives="${path}" -d -y install ${packages}
+  apt-get --download-only -o Dir::Cache::archives="${path}" -d -y install ${packages} || exit 1
   
   packages_rep=""
   for i in $packages; do
@@ -23,7 +23,7 @@ function download_deb() {
   packages_depends=$(apt-cache depends --recurse --no-recommends --no-suggests \
                       --no-conflicts --no-breaks --no-replaces --no-enhances \
                       --no-pre-depends ${packages} | grep "^\w" | grep -Ev "${packages_rep}")
- (cd $path; apt-get download ${packages_depends})
+ (cd $path; apt-get download ${packages_depends} || exit 1)
 }
 
 echo "[download kernel package]"
@@ -35,8 +35,8 @@ echo "[download common node package]"
 download_deb /data/all sshpass openssh-server openssh-client openssl wget gzip ipvsadm ipset sysstat conntrack libseccomp2 unzip chrony bash-completion auditd audispd-plugins
 
 echo "[download docker package]"
-#curl -fsSL http://mirrors.aliyun.com/docker-ce/linux/debian/gpg | apt-key add -
-echo "deb [trusted=yes] https://mirrors.aliyun.com/docker-ce/linux/debian ${OS_CODENAME} stable" > /etc/apt/sources.list.d/docker-ce.list
+#curl -fsSL http://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian/gpg | apt-key add -
+echo "deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian ${OS_CODENAME} stable" > /etc/apt/sources.list.d/docker-ce.list
 apt-get update
 download_deb /data/all docker-ce docker-ce-cli containerd.io
 
@@ -52,7 +52,6 @@ download_deb /data/worker haproxy
 echo "[move lib package]"
 mv -fv /data/kubeadm/{lib*,readline*,lsb-base*} /data/all/
 mv -fv /data/worker/{lib*,readline*,lsb-base*} /data/all/
-mv -fv /data/kernel/{lib*,readline*,lsb-base*} /data/all/
 
 echo "[dependency package]"
 dpkg -i /data/all/*.deb || apt-get --download-only -o Dir::Cache::archives="/data/all" -f -y install
