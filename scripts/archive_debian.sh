@@ -8,7 +8,7 @@ ls -alhR ./*
 #apt-get install -y curl lsb-release
 
 KUBE_VERSION=${1:-1.20.6}
-OS_CODENAME="$(awk -F'=' '/VERSION_CODENAME/ {print $2}' /etc/os-release)"
+OS_CODENAME="$(dpkg --status tzdata|grep Provides|cut -f2 -d'-')"
 
 function download_deb() {
   path=${1-./}
@@ -32,7 +32,7 @@ apt-get update
 download_deb /data/kernel/ linux-image-amd64 linux-headers-amd64
 
 echo "[download common node package]"
-download_deb /data/all sshpass openssh-server openssh-client openssl wget gzip ipvsadm ipset sysstat conntrack libseccomp2 unzip chrony bash-completion auditd audispd-plugins
+download_deb /data/all sshpass openssh-server openssh-client openssl wget gzip ipvsadm ipset sysstat conntrack libseccomp2 unzip chrony bash-completion auditd audispd-plugins apt-transport-https ca-certificates curl gnupg lsb-release
 
 echo "[download docker package]"
 #curl -fsSL http://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian/gpg | apt-key add -
