@@ -7,16 +7,19 @@ function archive_images() {
   
   echo "[download images]"
   kubeadm config images pull --kubernetes-version ${KUBE_VERSION}
+  if [[ "${KUBE_VERSION}" == "1.21.1" ]]; then
+    docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io/coredns | awk -F'k8s.gcr.io/' '{print "docker tag " $0 " docker.io/" $2}' | bash
+  fi
   docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io | awk -F'k8s.gcr.io/' '{print "docker tag " $0 " registry.cn-hangzhou.aliyuncs.com/kainstall/" $2}' | bash
   docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io)
   
-  docker pull k8s.gcr.io/metrics-server/metrics-server:v0.4.4
-  docker tag k8s.gcr.io/metrics-server/metrics-server:v0.4.4 registry.cn-hangzhou.aliyuncs.com/kainstall/metrics-server:v0.4.4
-  docker rmi k8s.gcr.io/metrics-server/metrics-server:v0.4.4
+  docker pull k8s.gcr.io/metrics-server/metrics-server:v0.5.0
+  docker tag k8s.gcr.io/metrics-server/metrics-server:v0.5.0 registry.cn-hangzhou.aliyuncs.com/kainstall/metrics-server:v0.5.0
+  docker rmi k8s.gcr.io/metrics-server/metrics-server:v0.5.0
     
-  docker pull quay.io/coreos/flannel:v0.13.0
+  docker pull quay.io/coreos/flannel:v0.14.0
   docker pull kubernetesui/metrics-scraper:v1.0.6
-  docker pull kubernetesui/dashboard:v2.2.0
+  docker pull kubernetesui/dashboard:v2.3.1
   docker pull traefik/whoami:v1.6.1
   docker pull traefik:v2.4.8
     
@@ -45,10 +48,10 @@ function archive_manifests() {
   [ ! -d ${manifest_dir} ] && mkdir -pv ${manifest_dir} || sudo rm -rfv ${manifest_dir}/*
   
   echo "[download manifest]"
-  wget https://cdn.jsdelivr.net/gh/coreos/flannel@v0.13.0/Documentation/kube-flannel.yml -o /dev/null -O ${manifest_dir}/kube-flannel.yml
-  wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.4.4/components.yaml -o /dev/null -O ${manifest_dir}/metrics-server.yml
+  wget https://cdn.jsdelivr.net/gh/coreos/flannel@v0.14.0/Documentation/kube-flannel.yml -o /dev/null -O ${manifest_dir}/kube-flannel.yml
+  wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.5.0/components.yaml -o /dev/null -O ${manifest_dir}/metrics-server.yml
   wget https://cdn.jsdelivr.net/gh/kubernetes/ingress-nginx@controller-v0.46.0/deploy/static/provider/baremetal/deploy.yaml -o /dev/null -O ${manifest_dir}/ingress-nginx.yml
-  wget https://cdn.jsdelivr.net/gh/kubernetes/dashboard@v2.2.0/aio/deploy/recommended.yaml -o /dev/null -O ${manifest_dir}/kubernetes-dashboard.yml
+  wget https://cdn.jsdelivr.net/gh/kubernetes/dashboard@v2.3.1/aio/deploy/recommended.yaml -o /dev/null -O ${manifest_dir}/kubernetes-dashboard.yml
 }
 
 function archive_bins() {
