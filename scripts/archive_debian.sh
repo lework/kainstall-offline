@@ -27,7 +27,8 @@ function download_deb() {
 }
 
 echo "[download kernel package]"
-echo "deb [trusted=yes] http://mirrors.aliyun.com/debian ${OS_CODENAME}-backports main" > /etc/apt/sources.list.d/backports.list
+#echo "deb [trusted=yes] http://mirrors.aliyun.com/debian ${OS_CODENAME}-backports main" > /etc/apt/sources.list.d/backports.list
+echo "deb [trusted=yes] http://deb.debian.org/debian ${OS_CODENAME}-backports main" > /etc/apt/sources.list.d/backports.list
 apt-get update
 download_deb /data/kernel/ linux-image-amd64 linux-headers-amd64
 
@@ -36,13 +37,21 @@ download_deb /data/all sshpass openssh-server openssh-client openssl wget gzip i
 
 echo "[download docker package]"
 #curl -fsSL http://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian/gpg | apt-key add -
-echo "deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian ${OS_CODENAME} stable" > /etc/apt/sources.list.d/docker-ce.list
+#echo "deb [trusted=yes] http://mirrors.aliyun.com/docker-ce/linux/debian ${OS_CODENAME} stable" > /etc/apt/sources.list.d/docker-ce.list
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list > /dev/null
+  
 apt-get update
 download_deb /data/all docker-ce docker-ce-cli containerd.io
 
 echo "[download kubeadm package]"
-echo 'deb [trusted=yes] http://mirrors.tuna.tsinghua.edu.cn/kubernetes/apt kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
+#echo 'deb [trusted=yes] http://mirrors.aliyun.com/kubernetes/apt kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
 #curl -s http://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -
+curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
+
 apt-get update
 download_deb /data/kubeadm kubeadm=$KUBE_VERSION-00 kubelet=$KUBE_VERSION-00 kubectl=$KUBE_VERSION-00
 
