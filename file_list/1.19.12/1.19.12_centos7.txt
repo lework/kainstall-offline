@@ -14,9 +14,9 @@
 32K	1.19.12/1.19.12_centos7/packages/kernel/perl-Time-Local-1.2300-2.el7.noarch.rpm
 44K	1.19.12/1.19.12_centos7/packages/kernel/perl-HTTP-Tiny-0.033-3.el7.noarch.rpm
 32K	1.19.12/1.19.12_centos7/packages/kernel/perl-File-Path-2.09-2.el7.noarch.rpm
-54M	1.19.12/1.19.12_centos7/packages/kernel/kernel-ml-5.12.12-1.el7.elrepo.x86_64.rpm
 60K	1.19.12/1.19.12_centos7/packages/kernel/perl-Getopt-Long-2.40-3.el7.noarch.rpm
 92K	1.19.12/1.19.12_centos7/packages/kernel/perl-Pod-Perldoc-3.20-4.el7.noarch.rpm
+55M	1.19.12/1.19.12_centos7/packages/kernel/kernel-ml-5.13.0-1.el7.elrepo.x86_64.rpm
 28K	1.19.12/1.19.12_centos7/packages/kernel/libmnl-1.0.3-7.el7.x86_64.rpm
 948K	1.19.12/1.19.12_centos7/packages/kernel/groff-base-1.22.2-8.el7.x86_64.rpm
 32K	1.19.12/1.19.12_centos7/packages/kernel/perl-Pod-Usage-1.63-3.el7.noarch.rpm
@@ -131,13 +131,13 @@
 104K	1.19.12/1.19.12_centos7/packages/all/systemd-sysv-219-78.el7_9.3.x86_64.rpm
 320K	1.19.12/1.19.12_centos7/packages/all/sysstat-10.1.5-19.el7.x86_64.rpm
 130M	1.19.12/1.19.12_centos7/packages/all
-360M	1.19.12/1.19.12_centos7/packages
+361M	1.19.12/1.19.12_centos7/packages
 8.0K	1.19.12/1.19.12_centos7/manifests/kube-flannel.yml
 8.0K	1.19.12/1.19.12_centos7/manifests/kubernetes-dashboard.yml
 8.0K	1.19.12/1.19.12_centos7/manifests/metrics-server.yml
 20K	1.19.12/1.19.12_centos7/manifests/ingress-nginx.yml
 48K	1.19.12/1.19.12_centos7/manifests
-872M	1.19.12/1.19.12_centos7
+873M	1.19.12/1.19.12_centos7
 
 [IMAGES]
 111MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-controller-manager:v1.19.12

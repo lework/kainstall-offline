@@ -5,11 +5,13 @@
 148M	1.19.12/1.19.12_debian10/images/master.tgz
 82M	1.19.12/1.19.12_debian10/images/all.tgz
 475M	1.19.12/1.19.12_debian10/images
+1004K	1.19.12/1.19.12_debian10/packages/kernel/linux-headers-4.19.0-17-amd64_4.19.194-2_amd64.deb
 180K	1.19.12/1.19.12_debian10/packages/kernel/xz-utils_5.2.4-1_amd64.deb
 76K	1.19.12/1.19.12_debian10/packages/kernel/libgomp1_8.3.0-6_amd64.deb
 72K	1.19.12/1.19.12_debian10/packages/kernel/readline-common_7.0-5_all.deb
+8.1M	1.19.12/1.19.12_debian10/packages/kernel/linux-headers-4.19.0-17-common_4.19.194-2_all.deb
 12K	1.19.12/1.19.12_debian10/packages/kernel/libmpx2_8.3.0-6_amd64.deb
-8.1M	1.19.12/1.19.12_debian10/packages/kernel/linux-headers-4.19.0-17-common_4.19.194-1_all.deb
+1.4M	1.19.12/1.19.12_debian10/packages/kernel/linux-libc-dev_4.19.194-2_amd64.deb
 12K	1.19.12/1.19.12_debian10/packages/kernel/libatomic1_8.3.0-6_amd64.deb
 72K	1.19.12/1.19.12_debian10/packages/kernel/initramfs-tools_0.133+deb10u1_all.deb
 1.5M	1.19.12/1.19.12_debian10/packages/kernel/libssl1.1_1.1.1d-0+deb10u6_amd64.deb
@@ -18,6 +20,7 @@
 116K	1.19.12/1.19.12_debian10/packages/kernel/libmagic1_1%3a5.35-4+deb10u2_amd64.deb
 576K	1.19.12/1.19.12_debian10/packages/kernel/libisl19_0.20-2_amd64.deb
 1.7M	1.19.12/1.19.12_debian10/packages/kernel/python3.7-minimal_3.7.3-2+deb10u3_amd64.deb
+47M	1.19.12/1.19.12_debian10/packages/kernel/linux-image-4.19.0-17-amd64_4.19.194-2_amd64.deb
 356K	1.19.12/1.19.12_debian10/packages/kernel/libasan5_8.3.0-6_amd64.deb
 64K	1.19.12/1.19.12_debian10/packages/kernel/python3_3.7.3-1_amd64.deb
 760K	1.19.12/1.19.12_debian10/packages/kernel/libmpfr6_4.0.2-1_amd64.deb
@@ -28,9 +31,9 @@
 0	1.19.12/1.19.12_debian10/packages/kernel/lock
 28K	1.19.12/1.19.12_debian10/packages/kernel/libitm1_8.3.0-6_amd64.deb
 2.2M	1.19.12/1.19.12_debian10/packages/kernel/libgcc-8-dev_8.3.0-6_amd64.deb
-1.4M	1.19.12/1.19.12_debian10/packages/kernel/linux-libc-dev_4.19.194-1_amd64.deb
 424K	1.19.12/1.19.12_debian10/packages/kernel/busybox_1%3a1.30.1-4_amd64.deb
 92K	1.19.12/1.19.12_debian10/packages/kernel/kmod_26-1_amd64.deb
+756K	1.19.12/1.19.12_debian10/packages/kernel/linux-kbuild-4.19_4.19.194-2_amd64.deb
 48K	1.19.12/1.19.12_debian10/packages/kernel/libcc1-0_8.3.0-6_amd64.deb
 28K	1.19.12/1.19.12_debian10/packages/kernel/lsb-base_10.2019051400_all.deb
 128K	1.19.12/1.19.12_debian10/packages/kernel/liblsan0_8.3.0-6_amd64.deb
@@ -48,10 +51,8 @@
 272K	1.19.12/1.19.12_debian10/packages/kernel/libc-dev-bin_2.28-10_amd64.deb
 8.0K	1.19.12/1.19.12_debian10/packages/kernel/linux-headers-amd64_4.19+105+deb10u12_amd64.deb
 56K	1.19.12/1.19.12_debian10/packages/kernel/binutils_2.31.1-16_amd64.deb
-532K	1.19.12/1.19.12_debian10/packages/kernel/linux-compiler-gcc-8-x86_4.19.194-1_amd64.deb
 52K	1.19.12/1.19.12_debian10/packages/kernel/libkmod2_26-1_amd64.deb
 2.0M	1.19.12/1.19.12_debian10/packages/kernel/binutils-common_2.31.1-16_amd64.deb
-1004K	1.19.12/1.19.12_debian10/packages/kernel/linux-headers-4.19.0-17-amd64_4.19.194-1_amd64.deb
 88K	1.19.12/1.19.12_debian10/packages/kernel/libmpdec2_2.4.2-2_amd64.deb
 36K	1.19.12/1.19.12_debian10/packages/kernel/python3-minimal_3.7.3-1_amd64.deb
 96K	1.19.12/1.19.12_debian10/packages/kernel/klibc-utils_2.0.6-1+deb10u1_amd64.deb
@@ -69,8 +70,7 @@
 20K	1.19.12/1.19.12_debian10/packages/kernel/libpython3-stdlib_3.7.3-1_amd64.deb
 1.7M	1.19.12/1.19.12_debian10/packages/kernel/libpython3.7-stdlib_3.7.3-2+deb10u3_amd64.deb
 104K	1.19.12/1.19.12_debian10/packages/kernel/libexpat1_2.2.6-2+deb10u1_amd64.deb
-756K	1.19.12/1.19.12_debian10/packages/kernel/linux-kbuild-4.19_4.19.194-1_amd64.deb
-47M	1.19.12/1.19.12_debian10/packages/kernel/linux-image-4.19.0-17-amd64_4.19.194-1_amd64.deb
+532K	1.19.12/1.19.12_debian10/packages/kernel/linux-compiler-gcc-8-x86_4.19.194-2_amd64.deb
 528K	1.19.12/1.19.12_debian10/packages/kernel/apparmor_2.13.2-10_amd64.deb
 102M	1.19.12/1.19.12_debian10/packages/kernel
 4.0K	1.19.12/1.19.12_debian10/packages/worker
@@ -82,7 +82,6 @@
 180K	1.19.12/1.19.12_debian10/packages/all/xz-utils_5.2.4-1_amd64.deb
 164K	1.19.12/1.19.12_debian10/packages/all/ca-certificates_20200601~deb10u2_all.deb
 72K	1.19.12/1.19.12_debian10/packages/all/readline-common_7.0-5_all.deb
-1.1M	1.19.12/1.19.12_debian10/packages/all/libgnutls30_3.6.7-4+deb10u7_amd64.deb
 28K	1.19.12/1.19.12_debian10/packages/all/libxdmcp6_1%3a1.1.2-3_amd64.deb
 92K	1.19.12/1.19.12_debian10/packages/all/libedit2_3.1-20181209-1_amd64.deb
 56K	1.19.12/1.19.12_debian10/packages/all/libpsl5_0.20.2-2_amd64.deb
@@ -227,14 +226,14 @@
 56K	1.19.12/1.19.12_debian10/packages/all/libnftnl11_1.1.2-2_amd64.deb
 572K	1.19.12/1.19.12_debian10/packages/all/exim4-daemon-light_4.92-8+deb10u6_amd64.deb
 1.9M	1.19.12/1.19.12_debian10/packages/all/libpython2.7-stdlib_2.7.16-2+deb10u1_amd64.deb
-48M	1.19.12/1.19.12_debian10/packages/all
-149M	1.19.12/1.19.12_debian10/packages
+46M	1.19.12/1.19.12_debian10/packages/all
+147M	1.19.12/1.19.12_debian10/packages
 8.0K	1.19.12/1.19.12_debian10/manifests/kube-flannel.yml
 8.0K	1.19.12/1.19.12_debian10/manifests/kubernetes-dashboard.yml
 8.0K	1.19.12/1.19.12_debian10/manifests/metrics-server.yml
 20K	1.19.12/1.19.12_debian10/manifests/ingress-nginx.yml
 48K	1.19.12/1.19.12_debian10/manifests
-661M	1.19.12/1.19.12_debian10
+660M	1.19.12/1.19.12_debian10
 
 [IMAGES]
 111MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-controller-manager:v1.19.12
