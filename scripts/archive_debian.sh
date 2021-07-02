@@ -37,16 +37,14 @@ download_deb /data/all sshpass openssh-server openssh-client openssl wget gzip i
 
 echo "[download docker package]"
 #curl -fsSL http://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian/gpg | apt-key add -
-#echo "deb [trusted=yes] http://mirrors.aliyun.com/docker-ce/linux/debian ${OS_CODENAME} stable" > /etc/apt/sources.list.d/docker-ce.list
-echo "deb [trusted=yes] http://download.docker.com/linux/debian ${OS_CODENAME} stable" > /etc/apt/sources.list.d/docker-ce.list
+echo "deb [trusted=yes] http://mirrors.aliyun.com/docker-ce/linux/debian ${OS_CODENAME} stable" > /etc/apt/sources.list.d/docker-ce.list
   
 apt-get update
 download_deb /data/all docker-ce docker-ce-cli containerd.io
 
 echo "[download kubeadm package]"
-#echo 'deb [trusted=yes] http://mirrors.aliyun.com/kubernetes/apt kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
+echo 'deb [trusted=yes] http://mirrors.aliyun.com/kubernetes/apt kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
 #curl -s http://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -
-echo "deb [trusted=yes] http://apt.kubernetes.io/ kubernetes-xenial main" > /etc/apt/sources.list.d/kubernetes.list
 
 apt-get update
 download_deb /data/kubeadm kubeadm=$KUBE_VERSION-00 kubelet=$KUBE_VERSION-00 kubectl=$KUBE_VERSION-00
