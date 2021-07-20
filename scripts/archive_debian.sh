@@ -43,7 +43,8 @@ download_deb /data/all sshpass openssh-server openssh-client openssl wget gzip i
 echo "[download docker package]"
 #curl -fsSL http://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian/gpg | apt-key add -
 echo "deb [trusted=yes] https://download.docker.com/linux/debian ${OS_CODENAME} stable" > /etc/apt/sources.list.d/docker-ce.list
-  
+
+[ "${OS_CODENAME}" == "stretch" ] && apt-get -y install apt-transport-https  
 apt-get update
 download_deb /data/all docker-ce docker-ce-cli containerd.io
 
