@@ -10,6 +10,11 @@ ls -alhR ./*
 KUBE_VERSION=${1:-1.20.6}
 OS_CODENAME="$(dpkg --status tzdata|grep Provides|cut -f2 -d'-')"
 
+cat << EOF > /etc/apt/apt.conf.d/99verify-peer.conf 
+Acquire::https::Verify-Peer "false";
+Acquire::https::Verify-Host "false";
+EOF
+
 function download_deb() {
   path=${1-./}
   packages=${@:2}
@@ -37,13 +42,13 @@ download_deb /data/all sshpass openssh-server openssh-client openssl wget gzip i
 
 echo "[download docker package]"
 #curl -fsSL http://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian/gpg | apt-key add -
-echo "deb [trusted=yes] http://mirrors.aliyun.com/docker-ce/linux/debian ${OS_CODENAME} stable" > /etc/apt/sources.list.d/docker-ce.list
+echo "deb [trusted=yes] https://download.docker.com/linux/debian ${OS_CODENAME} stable" > /etc/apt/sources.list.d/docker-ce.list
   
 apt-get update
 download_deb /data/all docker-ce docker-ce-cli containerd.io
 
 echo "[download kubeadm package]"
-echo 'deb [trusted=yes] http://mirrors.aliyun.com/kubernetes/apt kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
+echo 'deb [trusted=yes] https://apt.kubernetes.io/ kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
 #curl -s http://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -
 
 apt-get update
