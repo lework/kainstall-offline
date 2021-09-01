@@ -17,7 +17,7 @@ for key in ${!OS_INFO[@]}; do
     os_dir="${KUBE_VERSION}/${KUBE_VERSION}_${key}${release}"
     packages_dir="${os_dir}/packages"
     [ ! -d ${packages_dir} ] && mkdir -pv ${packages_dir} || sudo rm -rfv ${packages_dir}/*
-    docker run --rm -v `pwd`/${packages_dir}:/data:rw -v `pwd`/scripts:/scripts:rw ${key}:${release} /bin/bash -c "bash /scripts/archive_${key}.sh ${KUBE_VERSION}"
+    docker run --rm --privileged -v `pwd`/${packages_dir}:/data:rw -v `pwd`/scripts:/scripts:rw ${key}:${release} /bin/bash -c "bash /scripts/archive_${key}.sh ${KUBE_VERSION}"
     cp -rf "${KUBE_VERSION}/bins" "${os_dir}/"
     cp -rf "${KUBE_VERSION}/images" "${os_dir}/"
     cp -rf "${KUBE_VERSION}/manifests" "${os_dir}/"
