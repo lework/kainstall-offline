@@ -38,7 +38,7 @@ function download_deb() {
 }
 
 echo "[download kernel package]"
-apt-get update
+apt update -y --allow-unauthenticated
 download_deb /data/kernel/ linux-headers-generic linux-image-generic
 
 echo "[download common node package]"
@@ -48,13 +48,13 @@ echo "[download docker package]"
 echo "deb [trusted=yes] https://download.docker.com/linux/ubuntu ${OS_CODENAME} stable" > /etc/apt/sources.list.d/docker-ce.list
 
 [ "${OS_CODENAME}" == "stretch" ] && apt-get -y install apt-transport-https  
-apt-get update
+apt update -y --allow-unauthenticated
 download_deb /data/all docker-ce docker-ce-cli containerd.io
 
 echo "[download kubeadm package]"
 echo 'deb [trusted=yes] https://apt.kubernetes.io/ kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
 
-apt-get update
+apt update -y --allow-unauthenticated
 download_deb /data/kubeadm kubeadm=$KUBE_VERSION-00 kubelet=$KUBE_VERSION-00 kubectl=$KUBE_VERSION-00
 
 echo "[download worker node package]"
