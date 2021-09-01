@@ -1,4 +1,4 @@
-#!/bin/env bash
+﻿#!/bin/env bash
 
 
 function archive_images() {
@@ -21,12 +21,15 @@ function archive_images() {
   docker pull kubernetesui/metrics-scraper:v1.0.6
   docker pull kubernetesui/dashboard:v2.3.1
   docker pull traefik/whoami:v1.6.1
-  docker pull traefik:v2.4.11
+  docker pull traefik:v2.5.11
     
-  docker pull jettech/kube-webhook-certgen:v1.5.1
-  docker pull k8s.gcr.io/ingress-nginx/controller:v0.48.1
-  docker tag k8s.gcr.io/ingress-nginx/controller:v0.48.1 registry.cn-hangzhou.aliyuncs.com/kainstall/controller:v0.48.1
-  docker rmi k8s.gcr.io/ingress-nginx/controller:v0.48.1
+  docker pull k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.0
+  docker tag k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.0 registry.cn-hangzhou.aliyuncs.com/kainstall/kube-webhook-certgen:v1.0
+  docker rmi k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.0
+  
+  docker pull k8s.gcr.io/ingress-nginx/controller:v1.0.0
+  docker tag k8s.gcr.io/ingress-nginx/controller:v1.0.0 registry.cn-hangzhou.aliyuncs.com/kainstall/controller:v1.0.0
+  docker rmi k8s.gcr.io/ingress-nginx/controller:v1.0.0
     
   docker pull k8s.gcr.io/defaultbackend-amd64:1.5
   docker tag k8s.gcr.io/defaultbackend-amd64:1.5 registry.cn-hangzhou.aliyuncs.com/kainstall/defaultbackend-amd64:1.5
@@ -50,7 +53,7 @@ function archive_manifests() {
   echo "[download manifest]"
   wget https://cdn.jsdelivr.net/gh/coreos/flannel@v0.14.0/Documentation/kube-flannel.yml -o /dev/null -O ${manifest_dir}/kube-flannel.yml
   wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.5.0/components.yaml -o /dev/null -O ${manifest_dir}/metrics-server.yml
-  wget https://cdn.jsdelivr.net/gh/kubernetes/ingress-nginx@controller-v0.48.1/deploy/static/provider/baremetal/deploy.yaml -o /dev/null -O ${manifest_dir}/ingress-nginx.yml
+  wget https://cdn.jsdelivr.net/gh/kubernetes/ingress-nginx@controller-v1.0.0/deploy/static/provider/baremetal/deploy.yaml -o /dev/null -O ${manifest_dir}/ingress-nginx.yml
   wget https://cdn.jsdelivr.net/gh/kubernetes/dashboard@v2.3.1/aio/deploy/recommended.yaml -o /dev/null -O ${manifest_dir}/kubernetes-dashboard.yml
 }
 

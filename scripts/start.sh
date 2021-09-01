@@ -7,6 +7,7 @@ echo "[download packages]"
 declare -A OS_INFO=(
   ["centos"]="7 8"
   ["debian"]="9 10"
+  ["ubuntu"]="20.04 21.04"
 )
 
 OS_LIST="${!OS_INFO[@]}"
