@@ -1,0 +1,35 @@
+[File]
+38M	1.19.14/1.19.14_ubuntu21.04/bins/kubeadm-linux-amd64
+38M	1.19.14/1.19.14_ubuntu21.04/bins
+221M	1.19.14/1.19.14_ubuntu21.04/images/worker.tgz
+148M	1.19.14/1.19.14_ubuntu21.04/images/master.tgz
+67M	1.19.14/1.19.14_ubuntu21.04/images/all.tgz
+435M	1.19.14/1.19.14_ubuntu21.04/images
+4.0K	1.19.14/1.19.14_ubuntu21.04/packages/kernel
+4.0K	1.19.14/1.19.14_ubuntu21.04/packages/worker
+4.0K	1.19.14/1.19.14_ubuntu21.04/packages/kubeadm
+4.0K	1.19.14/1.19.14_ubuntu21.04/packages/all
+20K	1.19.14/1.19.14_ubuntu21.04/packages
+8.0K	1.19.14/1.19.14_ubuntu21.04/manifests/kube-flannel.yml
+8.0K	1.19.14/1.19.14_ubuntu21.04/manifests/kubernetes-dashboard.yml
+8.0K	1.19.14/1.19.14_ubuntu21.04/manifests/metrics-server.yml
+20K	1.19.14/1.19.14_ubuntu21.04/manifests/ingress-nginx.yml
+48K	1.19.14/1.19.14_ubuntu21.04/manifests
+472M	1.19.14/1.19.14_ubuntu21.04
+
+[IMAGES]
+111MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-controller-manager:v1.19.14
+119MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-apiserver:v1.19.14
+220MB kubernetesui/dashboard:v2.3.1
+253MB registry.cn-hangzhou.aliyuncs.com/kainstall/etcd:3.4.13-0
+283MB registry.cn-hangzhou.aliyuncs.com/kainstall/controller:v1.0.0
+34.5MB kubernetesui/metrics-scraper:v1.0.6
+45.2MB registry.cn-hangzhou.aliyuncs.com/kainstall/coredns:1.7.0
+46.5MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-scheduler:v1.19.14
+46.7MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-webhook-certgen:v1.0
+5.13MB registry.cn-hangzhou.aliyuncs.com/kainstall/defaultbackend-amd64:1.5
+63.5MB registry.cn-hangzhou.aliyuncs.com/kainstall/metrics-server:v0.5.0
+6.55MB traefik/whoami:v1.6.1
+67.9MB quay.io/coreos/flannel:v0.14.0
+683kB registry.cn-hangzhou.aliyuncs.com/kainstall/pause:3.2
+98.9MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-proxy:v1.19.14
