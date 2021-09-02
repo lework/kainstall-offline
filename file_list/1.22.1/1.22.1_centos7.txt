@@ -1,0 +1,36 @@
+[File]
+0	1.22.1/1.22.1_centos7/bins/kubeadm-linux-amd64
+4.0K	1.22.1/1.22.1_centos7/bins
+221M	1.22.1/1.22.1_centos7/images/worker.tgz
+164M	1.22.1/1.22.1_centos7/images/master.tgz
+67M	1.22.1/1.22.1_centos7/images/all.tgz
+452M	1.22.1/1.22.1_centos7/images
+12K	1.22.1/1.22.1_centos7/packages/kernel/elrepo-release-7.el7.elrepo.noarch.rpm
+16K	1.22.1/1.22.1_centos7/packages/kernel
+4.0K	1.22.1/1.22.1_centos7/packages/worker
+4.0K	1.22.1/1.22.1_centos7/packages/kubeadm
+4.0K	1.22.1/1.22.1_centos7/packages/all
+32K	1.22.1/1.22.1_centos7/packages
+8.0K	1.22.1/1.22.1_centos7/manifests/kube-flannel.yml
+8.0K	1.22.1/1.22.1_centos7/manifests/kubernetes-dashboard.yml
+8.0K	1.22.1/1.22.1_centos7/manifests/metrics-server.yml
+20K	1.22.1/1.22.1_centos7/manifests/ingress-nginx.yml
+48K	1.22.1/1.22.1_centos7/manifests
+452M	1.22.1/1.22.1_centos7
+
+[IMAGES]
+104MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-proxy:v1.22.1
+122MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-controller-manager:v1.22.1
+128MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-apiserver:v1.22.1
+220MB kubernetesui/dashboard:v2.3.1
+283MB registry.cn-hangzhou.aliyuncs.com/kainstall/controller:v1.0.0
+295MB registry.cn-hangzhou.aliyuncs.com/kainstall/etcd:3.5.0-0
+34.5MB kubernetesui/metrics-scraper:v1.0.6
+46.7MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-webhook-certgen:v1.0
+47.6MB registry.cn-hangzhou.aliyuncs.com/kainstall/coredns/coredns:v1.8.4
+5.13MB registry.cn-hangzhou.aliyuncs.com/kainstall/defaultbackend-amd64:1.5
+52.7MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-scheduler:v1.22.1
+63.5MB registry.cn-hangzhou.aliyuncs.com/kainstall/metrics-server:v0.5.0
+6.55MB traefik/whoami:v1.6.1
+67.9MB quay.io/coreos/flannel:v0.14.0
+683kB registry.cn-hangzhou.aliyuncs.com/kainstall/pause:3.5
