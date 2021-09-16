@@ -1,5 +1,14 @@
 ﻿#!/bin/env bash
 
+function rename_tag() {
+  source=$1
+  dest=$2
+
+  docker pull "${source}"
+  docker tag "${source}" "${dest}"
+  docker rmi "${source}"
+  docker images "${dest}"
+}
 
 function archive_images() {
   images_dir="${1:-.}/images"
@@ -13,27 +22,18 @@ function archive_images() {
   docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io | awk -F'k8s.gcr.io/' '{print "docker tag " $0 " registry.cn-hangzhou.aliyuncs.com/kainstall/" $2}' | bash
   docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io)
   
-  docker pull k8s.gcr.io/metrics-server/metrics-server:v0.5.0
-  docker tag k8s.gcr.io/metrics-server/metrics-server:v0.5.0 registry.cn-hangzhou.aliyuncs.com/kainstall/metrics-server:v0.5.0
-  docker rmi k8s.gcr.io/metrics-server/metrics-server:v0.5.0
-    
-  docker pull quay.io/coreos/flannel:v0.14.0
+  rename_tag k8s.gcr.io/metrics-server/metrics-server:v0.5.0 registry.cn-hangzhou.aliyuncs.com/kainstall/metrics-server:v0.5.0
+  rename_tag quay.io/coreos/flannel:v0.14.0 registry.cn-hangzhou.aliyuncs.com/kainstall/flannel:v0.14.0
+  
   docker pull kubernetesui/metrics-scraper:v1.0.6
   docker pull kubernetesui/dashboard:v2.3.1
   docker pull traefik/whoami:v1.6.1
   docker pull traefik:v2.5.11
     
-  docker pull k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.0
-  docker tag k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.0 registry.cn-hangzhou.aliyuncs.com/kainstall/kube-webhook-certgen:v1.0
-  docker rmi k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.0
-  
-  docker pull k8s.gcr.io/ingress-nginx/controller:v1.0.0
-  docker tag k8s.gcr.io/ingress-nginx/controller:v1.0.0 registry.cn-hangzhou.aliyuncs.com/kainstall/controller:v1.0.0
-  docker rmi k8s.gcr.io/ingress-nginx/controller:v1.0.0
-    
-  docker pull k8s.gcr.io/defaultbackend-amd64:1.5
-  docker tag k8s.gcr.io/defaultbackend-amd64:1.5 registry.cn-hangzhou.aliyuncs.com/kainstall/defaultbackend-amd64:1.5
-  docker rmi k8s.gcr.io/defaultbackend-amd64:1.5
+  rename_tag k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.0 registry.cn-hangzhou.aliyuncs.com/kainstall/kube-webhook-certgen:v1.0
+  rename_tag k8s.gcr.io/ingress-nginx/controller:v1.0.0 registry.cn-hangzhou.aliyuncs.com/kainstall/controller:v1.0.0
+
+  rename_tag k8s.gcr.io/defaultbackend-amd64:1.5 registry.cn-hangzhou.aliyuncs.com/kainstall/defaultbackend-amd64:1.5
   docker images
    
   master="etcd|kube-scheduler|kube-controller-manager|kube-apiserver"
