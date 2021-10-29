@@ -13,6 +13,8 @@
 - centos 8.3.2011
 - debain 9.13
 - debian 10.10
+- ubuntu 20.04
+- ubuntu 21.04
 
 ## 文件列表
 
