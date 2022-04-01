@@ -19,20 +19,23 @@ function archive_images() {
   if [[ "${KUBE_VERSION}" == "1.21.1" ]]; then
     docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io/coredns | awk -F'k8s.gcr.io/' '{print "docker tag " $0 " docker.io/" $2}' | bash
   fi
+  docker images --format '{{.Repository}}:{{.Tag}}' | grep coredns/coredns | awk -F'k8s.gcr.io/coredns/' '{print "docker tag " $0 " " "k8s.gcr.io/" $2 " && docker rmi " $0 }'
+
   docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io | awk -F'k8s.gcr.io/' '{print "docker tag " $0 " registry.cn-hangzhou.aliyuncs.com/kainstall/" $2}' | bash
   docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io)
   
-  rename_tag k8s.gcr.io/metrics-server/metrics-server:v0.5.2 registry.cn-hangzhou.aliyuncs.com/kainstall/metrics-server:v0.5.2
-  rename_tag quay.io/coreos/flannel:v0.15.1 registry.cn-hangzhou.aliyuncs.com/kainstall/flannel:v0.15.1
-  docker pull rancher/mirrored-flannelcni-flannel-cni-plugin:v1.0.0
+  rename_tag k8s.gcr.io/metrics-server/metrics-server:v0.6.1 registry.cn-hangzhou.aliyuncs.com/kainstall/metrics-server:v0.6.1
+  
+  docker pull rancher/mirrored-flannelcni-flannel-cni-plugin:v1.0.1
+  docker pull rancher/mirrored-flannelcni-flannel:v0.16.3
   
   docker pull kubernetesui/metrics-scraper:v1.0.7
-  docker pull kubernetesui/dashboard:v2.4.0
+  docker pull kubernetesui/dashboard:v2.5.1
   docker pull traefik/whoami:v1.7.1
-  docker pull traefik:v2.5.6
+  docker pull traefik:v2.6.1
     
   rename_tag k8s.gcr.io/ingress-nginx/kube-webhook-certgen:v1.1.1 registry.cn-hangzhou.aliyuncs.com/kainstall/kube-webhook-certgen:v1.1.1
-  rename_tag k8s.gcr.io/ingress-nginx/controller:v1.1.0 registry.cn-hangzhou.aliyuncs.com/kainstall/controller:v1.1.0
+  rename_tag k8s.gcr.io/ingress-nginx/controller:v1.1.2 registry.cn-hangzhou.aliyuncs.com/kainstall/controller:v1.1.2
 
   rename_tag k8s.gcr.io/defaultbackend-amd64:1.5 registry.cn-hangzhou.aliyuncs.com/kainstall/defaultbackend-amd64:1.5
   docker images
@@ -52,10 +55,10 @@ function archive_manifests() {
   [ ! -d ${manifest_dir} ] && mkdir -pv ${manifest_dir} || sudo rm -rfv ${manifest_dir}/*
   
   echo "[download manifest]"
-  wget https://cdn.jsdelivr.net/gh/coreos/flannel@v0.15.1/Documentation/kube-flannel.yml -o /dev/null -O ${manifest_dir}/kube-flannel.yml
-  wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.5.2/components.yaml -o /dev/null -O ${manifest_dir}/metrics-server.yml
-  wget https://cdn.jsdelivr.net/gh/kubernetes/ingress-nginx@controller-v1.1.0/deploy/static/provider/baremetal/deploy.yaml -o /dev/null -O ${manifest_dir}/ingress-nginx.yml
-  wget https://cdn.jsdelivr.net/gh/kubernetes/dashboard@v2.4.0/aio/deploy/recommended.yaml -o /dev/null -O ${manifest_dir}/kubernetes-dashboard.yml
+  wget https://cdn.jsdelivr.net/gh/coreos/flannel@v0.17.0/Documentation/kube-flannel.yml -o /dev/null -O ${manifest_dir}/kube-flannel.yml
+  wget https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.1/components.yaml -o /dev/null -O ${manifest_dir}/metrics-server.yml
+  wget https://cdn.jsdelivr.net/gh/kubernetes/ingress-nginx@controller-v1.1.2/deploy/static/provider/baremetal/deploy.yaml -o /dev/null -O ${manifest_dir}/ingress-nginx.yml
+  wget https://cdn.jsdelivr.net/gh/kubernetes/dashboard@v2.5.1/aio/deploy/recommended.yaml -o /dev/null -O ${manifest_dir}/kubernetes-dashboard.yml
 }
 
 function archive_bins() {
