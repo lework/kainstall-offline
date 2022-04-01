@@ -19,7 +19,7 @@ function archive_images() {
   if [[ "${KUBE_VERSION}" == "1.21.1" ]]; then
     docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io/coredns | awk -F'k8s.gcr.io/' '{print "docker tag " $0 " docker.io/" $2}' | bash
   fi
-  docker images --format '{{.Repository}}:{{.Tag}}' | grep coredns/coredns | awk -F'k8s.gcr.io/coredns/' '{print "docker tag " $0 " " "k8s.gcr.io/" $2 " && docker rmi " $0 }'
+  docker images --format '{{.Repository}}:{{.Tag}}' | grep coredns/coredns | awk -F'k8s.gcr.io/coredns/' '{print "docker tag " $0 " " "k8s.gcr.io/" $2 " && docker rmi " $0 }' | bash
 
   docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io | awk -F'k8s.gcr.io/' '{print "docker tag " $0 " registry.cn-hangzhou.aliyuncs.com/kainstall/" $2}' | bash
   docker rmi $(docker images --format '{{.Repository}}:{{.Tag}}' | grep k8s.gcr.io)
