@@ -129,7 +129,7 @@
 253MB registry.cn-hangzhou.aliyuncs.com/kainstall/etcd:3.4.13-0
 286MB registry.cn-hangzhou.aliyuncs.com/kainstall/controller:v1.1.2
 34.4MB kubernetesui/metrics-scraper:v1.0.7
-42.5MB registry.cn-hangzhou.aliyuncs.com/kainstall/coredns/coredns:v1.8.0
+42.5MB registry.cn-hangzhou.aliyuncs.com/kainstall/coredns:v1.8.0
 47.7MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-webhook-certgen:v1.1.1
 50.9MB registry.cn-hangzhou.aliyuncs.com/kainstall/kube-scheduler:v1.21.11
 5.13MB registry.cn-hangzhou.aliyuncs.com/kainstall/defaultbackend-amd64:1.5
